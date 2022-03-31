@@ -1,3 +1,8 @@
+<?php
+session_start();
+echo session_id()
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/bootstrap-5.0.2/css/bootstrap.min.css">
     <!-- Link Swiper's CSS -->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
     <title>Bievenido a la tienda</title>
@@ -30,7 +35,7 @@
 
         .swiper {
             width: 100%;
-            height: 100%;
+            height: auto;
         }
 
         .swiper-slide {
@@ -59,6 +64,31 @@
             height: 100%;
             object-fit: cover;
         }
+
+        .swiper-wrapper {
+            height: auto;
+        }
+
+
+        footer .info {
+            background: #212529;
+        }
+
+        footer{
+            background: #30d017;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        a:hover, a:focus {
+            text-decoration: none;
+            color: #30d017;
+        }
+
     </style>
 
 </head>
@@ -183,7 +213,7 @@
                     <div class="card-body">
                         <div class="card-body small">
                             <h5 class="card-title">Tijeras Economicas</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="text-success"><strong class="fs-4">$45.00</strong></p>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <button class="btn btn-success" type="submit">Agregar</button>
                         </div>
@@ -196,7 +226,7 @@
                     <div class="card-body">
                         <div class="card-body small">
                             <h5 class="card-title">Tijeras Economicas</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="text-success"><strong class="fs-4">$45.00</strong></p>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <button class="btn btn-success" type="submit">Agregar</button>
                         </div>
@@ -209,91 +239,33 @@
                     <div class="card-body">
                         <div class="card-body small">
                             <h5 class="card-title">Tijeras Economicas</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="text-success"><strong class="fs-4">$45.00</strong></p>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <button class="btn btn-success" type="submit">Agregar</button>
                         </div>
                     </div>
                 </div>
-            </div>            <div class="swiper-slide">
+            </div>
+            <div class="swiper-slide">
                 <div class="card px-3">
                     <img src="./assets/img/preoducto_demo.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="card-body small">
                             <h5 class="card-title">Tijeras Economicas</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="text-success"><strong class="fs-4">$45.00</strong></p>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <button class="btn btn-success" type="submit">Agregar</button>
                         </div>
                     </div>
                 </div>
-            </div>            <div class="swiper-slide">
+            </div>
+            <div class="swiper-slide">
                 <div class="card px-3">
                     <img src="./assets/img/preoducto_demo.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <div class="card-body small">
                             <h5 class="card-title">Tijeras Economicas</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-success" type="submit">Agregar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>            <div class="swiper-slide">
-                <div class="card px-3">
-                    <img src="./assets/img/preoducto_demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <div class="card-body small">
-                            <h5 class="card-title">Tijeras Economicas</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-success" type="submit">Agregar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>            <div class="swiper-slide">
-                <div class="card px-3">
-                    <img src="./assets/img/preoducto_demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <div class="card-body small">
-                            <h5 class="card-title">Tijeras Economicas</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-success" type="submit">Agregar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>            <div class="swiper-slide">
-                <div class="card px-3">
-                    <img src="./assets/img/preoducto_demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <div class="card-body small">
-                            <h5 class="card-title">Tijeras Economicas</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-success" type="submit">Agregar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>            <div class="swiper-slide">
-                <div class="card px-3">
-                    <img src="./assets/img/preoducto_demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <div class="card-body small">
-                            <h5 class="card-title">Tijeras Economicas</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <button class="btn btn-success" type="submit">Agregar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>            <div class="swiper-slide">
-                <div class="card px-3">
-                    <img src="./assets/img/preoducto_demo.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <div class="card-body small">
-                            <h5 class="card-title">Tijeras Economicas</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                            <p class="text-success"><strong class="fs-4">$45.00</strong></p>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                             <button class="btn btn-success" type="submit">Agregar</button>
                         </div>
@@ -305,18 +277,203 @@
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
     </div>
-
-
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<section>
+    <div class="container-fluid">
+        <h5 class="text-center py-5">PROMOCIONES EXCLUSIVAS</h5>
+    </div>
+    <!-- Swiper -->
+    <div class="swiper mySwiper2">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="card px-3">
+                    <img src="./assets/img/preoducto_demo.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="card-body small">
+                            <h5 class="card-title">Tijeras Economicas</h5>
+                            <p class="text-danger"><del class="text-muted fs-6">$50.00</del><strong class="fs-4">$45.00</strong></p>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <button class="btn btn-success" type="submit">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="card px-3">
+                    <img src="./assets/img/preoducto_demo.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="card-body small">
+                            <h5 class="card-title">Tijeras Economicas</h5>
+                            <p class="text-danger"><del class="text-muted fs-6">$50.00</del><strong class="fs-4">$45.00</strong></p>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <button class="btn btn-success" type="submit">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="card px-3">
+                    <img src="./assets/img/preoducto_demo.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="card-body small">
+                            <h5 class="card-title">Tijeras Economicas</h5>
+                            <p class="text-danger"><del class="text-muted fs-6">$50.00</del><strong class="fs-4">$45.00</strong></p>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <button class="btn btn-success" type="submit">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="card px-3">
+                    <img src="./assets/img/preoducto_demo.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="card-body small">
+                            <h5 class="card-title">Tijeras Economicas</h5>
+                            <p class="text-danger"><del class="text-muted fs-6">$50.00</del><strong class="fs-4">$45.00</strong></p>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <button class="btn btn-success" type="submit">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="card px-3">
+                    <img src="./assets/img/preoducto_demo.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="card-body small">
+                            <h5 class="card-title">Tijeras Economicas</h5>
+                            <p class="text-danger"><del class="text-muted fs-6">$50.00</del><strong class="fs-4">$45.00</strong></p>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <button class="btn btn-success" type="submit">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="card px-3">
+                    <img src="./assets/img/preoducto_demo.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="card-body small">
+                            <h5 class="card-title">Tijeras Economicas</h5>
+                            <p class="text-danger"><del class="text-muted fs-6">$50.00</del><strong class="fs-4">$45.00</strong></p>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <button class="btn btn-success" type="submit">Agregar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
 
+<section>
+    <div class="container-fluid">
+        <h5 class="text-center py-5">OFERTAS</h5>
+        <div class="row py-3">
+            <div class="col-12 col-sm-6">
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="./assets/img/preoducto_demo.jpg" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Nombre del Producto</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text"><small class="text-muted">Llevate 3 y paga 2</small></p>
+                                <button class="btn btn-danger" type="submit">Comprar ahora</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-sm-6">
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="./assets/img/preoducto_demo.jpg" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Nombre del Producto</h5>
+                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                <p class="card-text"><small class="text-muted">Recibe un <strong>10% OFF</strong></small></p>
+                                <button class="btn btn-danger" type="submit">Comprar ahora</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="w-100 py-4 flex-shrink-0">
+    <div class="container-fluid info">
+        <div class="container">
+            <div class="row gy-4 gx-5">
+                <div class="col-lg-4 col-md-6">
+                    <a class="navbar-brand py-3" href="#"><img src="./assets/img/logo.png" alt="" width="150"></a>
+                    <p class="small text-muted py-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white mb-3">Links</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Get started</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="text-white mb-3">Legales</h5>
+                    <ul class="list-unstyled text-muted">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Get started</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="text-white mb-3">Newsletter</h5>
+                    <p class="small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                    <form action="#">
+                        <div class="input-group mb-3">
+                            <input class="form-control" type="text" placeholder="correo electronico" aria-label="correo electronico" aria-describedby="button-addon2">
+                            <button class="btn btn-primary" id="button-addon2" type="button"><i class="fas fa-paper-plane"></i>Enviar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row bg-primary py-3">
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center text-light">
+                <p>Copyright PapeAndHome © 2022. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="./assets/bootstrap-5.0.2/js/bootstrap.min.js"></script>
+<script src="./assets/jquery-3.6.0.min.js"></script>
 <!-- Swiper JS -->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 <!-- Initialize Swiper -->
 <script>
-    var swiper = new Swiper(".mySwiper", {
+    let propiedades = {
         slidesPerView: 5,
         spaceBetween: 5,
         slidesPerGroup: 5,
@@ -330,7 +487,9 @@
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
         },
-    });
+    }
+    var swiper = new Swiper(".mySwiper", propiedades);
+    var swiper2 = new Swiper(".mySwiper2", propiedades);
 </script>
 </body>
 </html>
