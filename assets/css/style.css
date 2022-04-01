@@ -98,3 +98,15 @@ a:hover, a:focus {
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,0.12398462803089982) 51%, rgba(0,0,0,1) 100%);
 }
+
+.bd-callout-info {
+    border-left-color: #5bc0de !important;
+}
+.bd-callout {
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    border: 1px solid #e9ecef;
+    border-left-width: 0.25rem;
+    border-radius: 0.25rem;
+}
