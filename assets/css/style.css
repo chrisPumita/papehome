@@ -5,7 +5,7 @@ body {
 }
 
 body {
-    background: #eee;
+    background: #f8f9fa;
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
     font-size: 14px;
     color: #000;
@@ -71,7 +71,7 @@ a:hover, a:focus {
 
 .read-more {
     -webkit-transition: all 0.2s ease-in-out;
-    background: #eee;
+    background: #f8f9fa;
     color: #1e3f73;
     display: block;
     font-family: 'Open Sans', sans-serif;
@@ -92,4 +92,9 @@ a:hover, a:focus {
     display: block; margin-top: 60px;
     padding-top: 50px;
     position: relative;
+}
+
+.gradiente{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,0.12398462803089982) 51%, rgba(0,0,0,1) 100%);
 }
