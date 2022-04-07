@@ -54,7 +54,15 @@ session_start();
         </div>
     </div>
 </section>
+
 <section class="container py-3">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./index.php">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="./search.php">Busqueda</a></li>
+            <li class="breadcrumb-item active" aria-current="page">PRODUCTO X</li>
+        </ol>
+    </nav>
     <div class="row">
         <div class="col-12 col-sm-5 col-xl-6">
             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">

@@ -14,13 +14,13 @@ session_start();
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://cazaofertas.com.mx/wp-content/uploads/2020/07/Chedraui-regreso-310720-01.jpg" class="d-block w-100" alt="...">
+                <img src="./assets/img/min/1-min.png" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://cazaofertas.com.mx/wp-content/uploads/2020/07/Chedraui-regreso-310720-05.jpg" class="d-block w-100" alt="...">
+                <img src="./assets/img/min/2-min.png" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-                <img src="https://ofertadescuentos.com/wp-content/uploads/2017/07/Promociones-y-ofertas-de-fin-de-semana-chedraui-14-al-17-de-julio-OFFDE-2017.jpg" class="d-block w-100" alt="...">
+                <img src="./assets/img/min/3-min.png" class="d-block w-100" alt="...">
             </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">

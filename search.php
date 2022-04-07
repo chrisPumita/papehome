@@ -55,6 +55,12 @@ session_start();
     </div>
 </section>
 <section class="container">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="./index.php">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Busqueda</li>
+        </ol>
+    </nav>
     <div class="container d-md-flex align-items-stretch">
         <nav class=" py-4 pt-5" id="sidebar">
             <div class="row">
@@ -99,6 +105,7 @@ session_start();
             </div>
         </nav>
         <!-- Page Content  -->
+
         <div id="content" class="p-4 p-md-5 pt-5">
             <div class="row">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">

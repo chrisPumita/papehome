@@ -22,7 +22,7 @@
             <a class="navbar-brand" href="./"><img src="./assets/img/logo.png" alt="" width="150"></a>
             <ul class="nav justify-content-end">
                 <li class="nav-item">
-                    <a href="./product.php"  type="button" class="btn position-relative">
+                    <a href="./cart.php"  type="button" class="btn position-relative">
                         <i class="fas fa-shopping-cart"></i> Carrito
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                         4
