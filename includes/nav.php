@@ -21,6 +21,7 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="./"><img src="./assets/img/logo.png" alt="" width="150"></a>
             <ul class="nav justify-content-end">
+
                 <li class="nav-item">
                     <a href="./cart.php"  type="button" class="btn position-relative">
                         <i class="fas fa-shopping-cart"></i> Carrito
@@ -30,6 +31,14 @@
                       </span>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="./login.php"  type="button" class="btn position-relative">
+                        <i class="fas fa-user"></i> Entrar
+                      </span>
+                    </a>
+                </li>
+                <!--
                 <li class="nav-item">
                     <div class="dropdown">
                         <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -43,6 +52,7 @@
                         </ul>
                     </div>
                 </li>
+                -->
             </ul>
         </div>
     </nav>

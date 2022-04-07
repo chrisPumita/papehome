@@ -57,7 +57,7 @@ session_start();
 
 
         .back-to-shop {
-            margin-top: 4.5rem
+            margin-top: 2rem
         }
 
     </style>
@@ -135,7 +135,7 @@ session_start();
                         <div class="row text-muted">Papel</div>
                         <div class="row">Facia 500 Hojas</div>
                     </div>
-                    <div class="col-2">
+                    <div class="col-3">
                         <select class="form-select form-select-sm w-50" aria-label=".form-select-sm example">
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -150,24 +150,28 @@ session_start();
                 </div>
             </div>
             <?php } ?>
-            <div class="back-to-shop">
-                <a href="./search.php"><i class="fas fa-arrow-left"></i><span class="text-muted"> Seguir Comprando</span></a>
+        </div>
+        <div class="col-md-4 ">
+            <div class="summary">
+                <div>
+                    <h5><b>Total</b></h5>
+                </div>
+                <hr>
+                <div class="row py-3">
+                    <div class="col">3 Productos</div>
+                    <div class="col text-right">&dollar; 132.00</div>
+                </div>
+                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                    <div class="col">TOTAL</div>
+                    <div class="col text-right">&euro; 137.00</div>
+                </div>
+                <a href="./informacion.php" class="btn btn-success w-100" id="button-addon2" type="button">Confirmar Productos</a>
             </div>
         </div>
-        <div class="col-md-4 summary">
-            <div>
-                <h5><b>Total</b></h5>
-            </div>
-            <hr>
-            <div class="row py-3">
-                <div class="col">3 Productos</div>
-                <div class="col text-right">&dollar; 132.00</div>
-            </div>
-            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                <div class="col">TOTAL</div>
-                <div class="col text-right">&euro; 137.00</div>
-            </div>
-            <button class="btn btn-success w-100" id="button-addon2" type="button">Confirmar Productos</button>
+    </div>
+    <div class="row py-2">
+        <div class="back-to-shop">
+            <a href="./search.php"><i class="fas fa-arrow-left"></i><span class="text-muted"> Seguir Comprando</span></a>
         </div>
     </div>
 </section>
