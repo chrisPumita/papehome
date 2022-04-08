@@ -6,61 +6,8 @@ session_start();
 <html lang="en">
 <head>
     <?php include "./includes/header.php" ?>
-    <title>Bievenido a la tienda</title>
-    <style>
-        .title {
-            margin-bottom: 5vh
-        }
-
-
-        .cart {
-            background-color: #fff;
-            padding: 4vh 5vh;
-            border-bottom-left-radius: 1rem;
-            border-top-left-radius: 1rem
-        }
-
-        @media(max-width:767px) {
-            .cart {
-                padding: 4vh;
-                border-bottom-left-radius: unset;
-                border-top-right-radius: 1rem
-            }
-        }
-
-        .summary {
-            background-color: #ddd;
-            border-top-right-radius: 1rem;
-            border-bottom-right-radius: 1rem;
-            padding: 4vh;
-            color: rgb(65, 65, 65)
-        }
-
-        @media(max-width:767px) {
-            .summary {
-                border-top-right-radius: unset;
-                border-bottom-left-radius: 1rem
-            }
-        }
-
-        .summary .col-2 {
-            padding: 0
-        }
-
-        .summary .col-10 {
-            padding: 0
-        }
-
-        .title b {
-            font-size: 1.5rem
-        }
-
-
-        .back-to-shop {
-            margin-top: 2rem
-        }
-
-    </style>
+    <link rel="stylesheet" href="assets/css/style-step.css">
+    <title>Carrito</title>
 </head>
 <body>
 <?php include "./includes/nav.php" ?>

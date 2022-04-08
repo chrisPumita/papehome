@@ -31,9 +31,9 @@
                                 <input id="password" type="password" class="form-control" name="password" required>
                             </div>
                             <div class="align-items-center d-flex">
-                                <button type="submit" class="btn btn-primary ms-auto">
+                                <a href="./account" class="btn btn-primary" type="submit" class="btn btn-primary ms-auto">
                                     Iniciar
-                                </button>
+                                </a>
                             </div>
                         </form>
                     </div>
