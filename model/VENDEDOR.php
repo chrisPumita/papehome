@@ -1,6 +1,6 @@
 <?php
 
-class VENDEDOR
+class VENDEDOR extends PDODB
 {
     private $id_vendedor;
     private $nombre;

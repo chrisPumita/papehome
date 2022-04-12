@@ -1,6 +1,7 @@
 <?php
+include_once "../model/PDODB.php";
 
-class CLIENTE_USUARIO
+class CLIENTE_USUARIO extends PDODB
 {
     private $id_usuario;
     private $nombre;
@@ -67,5 +68,15 @@ class CLIENTE_USUARIO
     public function setPw($pw)
     {
         $this->pw = $pw;
+    }
+
+    /* FUNCIONES CRUD*/
+    public function create_usuario(){
+        $sql = "INSERT INTO `usuario` (`id_usuario`, `nombre`, `app`, `apm`, `email`, `pw`) 
+                VALUES ('".$this->getIdUsuario()."', '".$this->getNombre()."', '".$this->getApp()."', '".$this->getApm()."', '".$this->getEmail()."', '".$this->getPw()."')";
+        $this->connect();
+        $result = $this-> executeInstruction($sql);
+        $this->close();
+        return $result;
     }
 }

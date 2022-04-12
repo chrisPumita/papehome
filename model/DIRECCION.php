@@ -1,6 +1,6 @@
 <?php
 
-class DIRECCION
+class DIRECCION extends PDODB
 {
     private $id_dir;
     private $id_usuario;

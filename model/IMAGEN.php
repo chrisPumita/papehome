@@ -1,6 +1,6 @@
 <?php
 
-class IMAGEN
+class IMAGEN extends PDODB
 {
     private $id_imagen;
     private $id_producto;

@@ -1,6 +1,6 @@
 <?php
 
-class PEDIDO
+class PEDIDO extends PDODB
 {
     private $id_venta_pedido;
     private $id_usuario;
@@ -34,7 +34,6 @@ class PEDIDO
     /**************
      *  ATRIBUTOS *
      **************/
-
     public function getIdVentaPedido()
     {
         return $this->id_venta_pedido;

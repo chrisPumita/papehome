@@ -1,6 +1,6 @@
 <?php
 
-class CATEGORIA
+class CATEGORIA extends PDODB
 {
     private $id_categoria;
     private $id_categoria_fk;

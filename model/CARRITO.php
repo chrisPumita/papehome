@@ -1,6 +1,6 @@
 <?php
 
-class CARRITO
+class CARRITO extends PDODB
 {
     private $id_carrito;
     private $id_sesion;
@@ -60,6 +60,11 @@ class CARRITO
     public function setCreateAt($create_at)
     {
         $this->create_at = $create_at;
+    }
+
+    /*FUNCIONES DE CRUD*/
+    public function createCarrito(){
+        $sql = "INSERT INTO `carrito` (`id_carrito`, `id_sesion`, `id_usuario`, `create_at`) VALUES ('1231', 'CDS', '1', CURRENT_TIMESTAMP)";
     }
 
 }

@@ -1,6 +1,6 @@
 <?php
 
-class MARCA
+class MARCA extends PDODB
 {
     private $id_marca;
     private $marca;

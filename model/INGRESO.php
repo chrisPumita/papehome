@@ -1,6 +1,6 @@
 <?php
 
-class INGRESO
+class INGRESO extends PDODB
 {
     private $id_ingreso;
     private $id_producto;
