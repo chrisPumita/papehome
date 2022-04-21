@@ -1,5 +1,5 @@
 <?php
-
+include_once "../model/PDODB.php";
 class PRODUCTO extends PDODB
 {
     private $id_producto;
@@ -144,5 +144,53 @@ class PRODUCTO extends PDODB
     public function setEstatus($estatus)
     {
         $this->estatus = $estatus;
+    }
+
+    function queryListProducto(){
+    $filtroProducto = $this->getIdProducto() >0 ? " AND p.id_producto = ".$this->getIdProducto() :"";
+        $query = "select p.id_producto, p.id_marca, p.id_categoria,
+       p.sku, p.barcode, p.nombre, p.descripcion, p.min_alerta, p.presentacion,
+       p.costo_promedio, p.descuento, p.stock, p.estatus, c.categoria, m.marca,
+       count(img.id_imagen) AS n_fotos
+        from marca m, categoria c, productos p left join imagen img
+        ON img.id_producto = p.id_producto
+       WHERE p.estatus > 0
+         AND c.id_categoria = p.id_categoria
+         AND m.id_marca = p.id_marca ".$filtroProducto."
+        group by p.id_producto";
+
+        return $this->consultaSQL($query);
+    }
+
+    function queryListFotosProducto(){
+        $query = "select id_imagen, id_producto, path from imagen where id_producto = ".$this->getIdProducto();
+        return $this->consultaSQL($query);
+    }
+
+    function insertProducto(){
+        $query = "INSERT INTO `productos` (
+                         `id_producto`, `id_categoria`, `id_marca`, `sku`, 
+                         `barcode`, `nombre`, `descripcion`, `min_alerta`, 
+                         `presentacion`, `costo_promedio`, `descuento`, `stock`, `estatus`) VALUES 
+         (NULL, '".$this->getIdCategoria()."', '".$this->getIdMarca()."', '".$this->getSku()."', '".$this->getBarcode()."',
+          '".$this->getNombre()."', '".$this->getDescripcion()."', '".$this->getMinAlerta()."', '".$this->getPresentacion()."',
+           '".$this->getCostoPromedio()."', '".$this->getDescuento()."', '0', '1')";
+
+        return $this->ejecutarSQL($query);
+    }
+
+    function updateProducto(){
+        $query = "UPDATE productos t
+                    SET t.id_categoria   = ".$this->getIdCategoria().",
+                        t.id_marca       = ".$this->getIdMarca().",
+                        t.sku            = ".$this->getSku().",
+                        t.barcode        = '".$this->getBarcode()."',
+                        t.nombre         = '".$this->getNombre()."',
+                        t.min_alerta     = ".$this->getMinAlerta().",
+                        t.presentacion   = '".$this->getPresentacion()."',
+                        t.costo_promedio = ".$this->getCostoPromedio().",
+                        t.descuento      = ".$this->getDescuento()."
+                    WHERE t.id_producto = ".$this->getIdProducto().";";
+        return $this->ejecutarSQL($query);
     }
 }

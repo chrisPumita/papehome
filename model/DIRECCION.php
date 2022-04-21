@@ -1,5 +1,5 @@
 <?php
-
+include_once "../model/PDODB.php";
 class DIRECCION extends PDODB
 {
     private $id_dir;

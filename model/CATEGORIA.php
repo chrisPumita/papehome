@@ -1,10 +1,21 @@
 <?php
-
+include_once "../model/PDODB.php";
 class CATEGORIA extends PDODB
 {
     private $id_categoria;
-    private $id_categoria_fk;
+    private $venta_online;
     private $categoria;
+
+    public function getVentaOnline()
+    {
+        return $this->venta_online;
+    }
+
+    public function setVentaOnline($venta_online)
+    {
+        $this->venta_online = $venta_online;
+    }
+
 
     public function getIdCategoria()
     {
@@ -16,16 +27,6 @@ class CATEGORIA extends PDODB
         $this->id_categoria = $id_categoria;
     }
 
-    public function getIdCategoriaFk()
-    {
-        return $this->id_categoria_fk;
-    }
-
-    public function setIdCategoriaFk($id_categoria_fk)
-    {
-        $this->id_categoria_fk = $id_categoria_fk;
-    }
-
     public function getCategoria()
     {
         return $this->categoria;
@@ -35,5 +36,13 @@ class CATEGORIA extends PDODB
     {
         $this->categoria = $categoria;
     }
+
+    public function queryListCategoria(){
+        $query = "select id_categoria, categoria, venta_online
+                    from categoria order by categoria";
+        return $this->consultaSQL($query);
+    }
+
+
 
 }

@@ -1,5 +1,5 @@
 <?php
-
+include_once "../model/PDODB.php";
 class MARCA extends PDODB
 {
     private $id_marca;
@@ -23,5 +23,10 @@ class MARCA extends PDODB
     public function setMarca($marca)
     {
         $this->marca = $marca;
+    }
+
+    function queryListMarcas(){
+        $query = "select id_marca, marca from marca order by marca";
+        return $this->consultaSQL($query);
     }
 }

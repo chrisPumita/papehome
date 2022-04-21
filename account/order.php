@@ -1,13 +1,14 @@
 <?php
 session_start();
+$titulo = "HOME - Pape Home";
+$path = "../";
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>
-    <?php include "./header.php" ?>
+    <?php include "../includes_general/header.php" ?>
     <link rel="stylesheet" href="../assets/css/style-step.css">
-    <title>Orden</title>
+
 </head>
 <body>
 <?php include "./nav.php" ?>
@@ -99,8 +100,8 @@ session_start();
         </div>
     </div>
 </section>
-<?php include "../includes/footer.php"?>
-<?php include "./js.php"?>
+<?php include "../includes_general/footer.php" ?>
+<?php include "../includes_general/js.php"?>
 
 </body>
 </html>

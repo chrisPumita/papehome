@@ -1,5 +1,5 @@
 <?php
-
+include_once "../model/PDODB.php";
 class INGRESO extends PDODB
 {
     private $id_ingreso;

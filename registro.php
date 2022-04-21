@@ -1,11 +1,12 @@
 <?php
-    session_start();
+$titulo = "HOME - Registro";
+$path = "./"
 ?>
 
 <!doctype html>
 <html lang="en">
 <head>
-    <?php include "./includes/header.php" ?>
+    <?php include "./includes_general/header.php" ?>
     <title>Registrate Gratis</title>
 </head>
 <body>
@@ -77,6 +78,6 @@
         </div>
     </div>
 </section>
-<?php include "./includes/js.php"?>
+<?php include "./includes_general/js.php" ?>
 </body>
 </html>

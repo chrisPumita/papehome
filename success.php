@@ -5,13 +5,13 @@ session_start();
 <!doctype html>
 <html lang="en">
 <head>
-    <?php include "./includes/header.php" ?>
+    <?php include "./includes_general/header.php" ?>
     <link rel="stylesheet" href="assets/css/style-step.css">
     <title>Compra Realizada con exito</title>
 
 </head>
 <body>
-<?php include "./includes/nav.php" ?>
+<?php include "./includes_general/nav.php" ?>
 <section class="container py-3">
     <div class="row">
         <div class="cart">
@@ -53,8 +53,8 @@ session_start();
         </div>
     </div>
 </section>
-<?php include "./includes/footer.php"?>
-<?php include "./includes/js.php"?>
+<?php include "./includes_general/footer.php" ?>
+<?php include "./includes_general/js.php" ?>
 
 </body>
 </html>

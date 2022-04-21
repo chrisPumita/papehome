@@ -1,11 +1,13 @@
 <?php
 session_start();
+$titulo = "HOME - Direciones";
+$path = "../";
 ?>
 
 <!doctype html>
 <html lang="en">
 <head>
-    <?php include "./header.php" ?>
+    <?php include "../includes_general/header.php" ?>
     <link rel="stylesheet" href="../assets/css/style-step.css">
     <title>Direcciones</title>
 </head>
@@ -54,8 +56,8 @@ session_start();
     </div>
 </section>
 <?php
-    include "../includes/footer.php";
-    include "./js.php";
+    include "../includes_general/footer.php";
+    include "../includes_general/js.php";
     include "./modal_address.php";
 ?>
 

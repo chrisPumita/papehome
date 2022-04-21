@@ -1,6 +1,5 @@
 <?php
 include_once "../model/PDODB.php";
-
 class CLIENTE_USUARIO extends PDODB
 {
     private $id_usuario;

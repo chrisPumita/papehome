@@ -1,5 +1,5 @@
 <?php
-
+include_once "../model/PDODB.php";
 class CARRITO extends PDODB
 {
     private $id_carrito;

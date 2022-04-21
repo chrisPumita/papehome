@@ -1,5 +1,5 @@
 <?php
-
+include_once "../model/PDODB.php";
 class VENDEDOR extends PDODB
 {
     private $id_vendedor;
@@ -105,5 +105,17 @@ class VENDEDOR extends PDODB
     {
         $this->telefono = $telefono;
     }
+
+
+    /*FUNCIONES VENDEDOR*/
+    public function query_valida_user(){
+        $query = "SELECT `id_usuario`, `nombre`, `app`, `apm`, `email`, `pw` 
+                    FROM `usuario` WHERE `id_usuario` = '".$this->getIdVendedor()."' AND `pw` = '".$this->getPw()."'";
+        $this->connect();
+        $result = $this->getData($query);
+        $this->close();
+        return $result;
+    }
+
 
 }

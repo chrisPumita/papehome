@@ -5,11 +5,11 @@ session_start();
 <!doctype html>
 <html lang="en">
 <head>
-    <?php include "./includes/header.php" ?>
+    <?php include "./includes_general/header.php" ?>
     <title>Bievenido a la tienda</title>
 </head>
 <body>
-<?php include "./includes/nav.php" ?>
+<?php include "./includes_general/nav.php" ?>
 <section>
     <div id="carouselBannerPromos" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -125,9 +125,9 @@ session_start();
         </div>
     </div>
 </section>
-<?php include "./includes/ofertas_div.php"?>
-<?php include "./includes/footer.php"?>
-<?php include "./includes/js.php"?>
+<?php include "./includes_general/ofertas_div.php" ?>
+<?php include "./includes_general/footer.php" ?>
+<?php include "./includes_general/js.php" ?>
 
 
 
