@@ -1,7 +1,8 @@
 <?php
 include_once"../control/controlInventario.php";
 $id=$_POST['id'];
-$lista =consultaProducto($id);
+$filtro=$_POST['filtro'];
+$lista =listaProductosGalery($id,$filtro);
 if(count($lista)>0){
     $data = $lista;
     $mensaje = "Producto encontrados";

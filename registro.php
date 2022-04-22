@@ -21,19 +21,19 @@ $path = "./"
                 </div>
                 <div class="card shadow-lg">
                     <div class="card-body p-5">
-                        <h1 class="fs-4 card-title fw-bold mb-4 text-center">Iniciar Sesión</h1>
-                        <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
+                        <h1 class="fs-4 card-title fw-bold mb-4 text-center">Crear Cuenta</h1>
+                        <form id="frm-new-account" class="needs-validation" novalidate="" autocomplete="off">
                             <div class="mb-3">
-                                <label class="mb-2 text-muted" for="name">Nombre</label>
-                                <input id="name" type="text" class="form-control" name="name" value="" required autofocus>
+                                <label class="mb-2 text-muted" for="nombre">Nombre</label>
+                                <input id="nombre" type="text" class="form-control" name="nombre" value="" required autofocus>
                             </div>
                             <div class="mb-3">
-                                <label class="mb-2 text-muted" for="name">Primer Apellido</label>
-                                <input id="name" type="text" class="form-control" name="name" value="" required autofocus>
+                                <label class="mb-2 text-muted" for="app">Primer Apellido</label>
+                                <input id="app" type="text" class="form-control" name="app" value="" required autofocus>
                             </div>
                             <div class="mb-3">
-                                <label class="mb-2 text-muted" for="name">Segundo Apellido</label>
-                                <input id="name" type="text" class="form-control" name="name" value="" required autofocus>
+                                <label class="mb-2 text-muted" for="apm">Segundo Apellido</label>
+                                <input id="apm" type="text" class="form-control" name="apm" value="" required autofocus>
                             </div>
                             <div class="mb-3">
                                 <label class="mb-2 text-muted" for="email">E-Mail Address</label>
@@ -42,15 +42,20 @@ $path = "./"
                                     Email is invalid
                                 </div>
                             </div>
-
                             <div class="mb-3">
-                                <label class="mb-2 text-muted" for="password">Password</label>
-                                <input id="password" type="password" class="form-control" name="password" required>
+                                <label class="mb-2 text-muted" for="password">Contraseña</label>
+                                <input id="password" type="password" class="form-control" name="password" required autocomplete="off">
                                 <div class="invalid-feedback">
                                     Password is required
                                 </div>
                             </div>
-
+                            <div class="mb-3">
+                                <label class="mb-2 text-muted" for="r_password">Repetir Contraseña</label>
+                                <input id="r_password" type="password" class="form-control" name="r_password" required autocomplete="off">
+                                <div class="invalid-feedback">
+                                    Password is required
+                                </div>
+                            </div>
                             <p class="form-text text-muted mb-3">
                                 <input class="form-check-input" type="checkbox" value="" id="chkTerms">
                                 <label class="form-check-label" for="chkTerms">
@@ -79,5 +84,6 @@ $path = "./"
     </div>
 </section>
 <?php include "./includes_general/js.php" ?>
+<script src="./service/registro.js"></script>
 </body>
 </html>

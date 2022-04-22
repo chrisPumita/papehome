@@ -38,8 +38,8 @@ if(isset($_SESSION['admin_name']))
                         <h1 class="fs-4 card-title fw-bold mb-4 text-center">Inicio para administradores</h1>
                         <form id="frm_login_admin" class="needs-validation" novalidate="" autocomplete="off">
                             <div class="mb-3">
-                                <label class="mb-2 text-muted" for="no_vendedor">Numero de Usuario</label>
-                                <input id="no_vendedor" type="no_vendedor" class="form-control" name="no_vendedor"required>
+                                <label class="mb-2 text-muted" for="correo">Correo</label>
+                                <input id="correo" type="email" class="form-control" name="correo"required>
                             </div>
                             <div class="mb-3">
                                 <label class="mb-2 text-muted" for="password">Contraseña</label>
@@ -53,7 +53,6 @@ if(isset($_SESSION['admin_name']))
                         </form>
                         <div id="resp"></div>
                     </div>
-
                 </div>
                 <div class="text-center mt-5 text-muted">
                     Copyright PapeAndHome © 2022. All rights reserved.

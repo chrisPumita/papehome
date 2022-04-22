@@ -3,8 +3,24 @@ include_once "../model/PDODB.php";
 class IMAGEN extends PDODB
 {
     private $id_imagen;
-    private $id_producto;
     private $path;
+    private $id_prod;
+
+    /**
+     * @return mixed
+     */
+    public function getIdProd()
+    {
+        return $this->id_prod;
+    }
+
+    /**
+     * @param mixed $id_prod
+     */
+    public function setIdProd($id_prod)
+    {
+        $this->id_prod = $id_prod;
+    }
 
     public function getIdImagen()
     {
@@ -14,16 +30,6 @@ class IMAGEN extends PDODB
     public function setIdImagen($id_imagen)
     {
         $this->id_imagen = $id_imagen;
-    }
-
-    public function getIdProducto()
-    {
-        return $this->id_producto;
-    }
-
-    public function setIdProducto($id_producto)
-    {
-        $this->id_producto = $id_producto;
     }
 
     public function getPath()
@@ -36,4 +42,10 @@ class IMAGEN extends PDODB
         $this->path = $path;
     }
 
+    public function getFotos()
+    {
+        $query = "select id_imagen, id_producto, path 
+                from imagen where id_producto = ".$this->getIdProd();
+        return $this->consultaSQL($query);
+    }
 }

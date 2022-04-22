@@ -31,28 +31,28 @@
                       </span>
                     </a>
                 </li>
-
+<?php if(!isset($_SESSION['user_name'])){ ?>
                 <li class="nav-item">
                     <a href="./login.php"  type="button" class="btn position-relative">
                         <i class="fas fa-user"></i> Entrar
                       </span>
                     </a>
                 </li>
-                <!--
+                <?php } else {?>
                 <li class="nav-item">
                     <div class="dropdown">
                         <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-user"></i> Cuenta
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">Mis Pedidos</a></li>
-                            <li><a class="dropdown-item" href="#">Perfil</a></li>
+                            <li><a class="dropdown-item" href="./account">Mis Pedidos</a></li>
+                            <li><a class="dropdown-item" href="./account/direcciones.php">Perfil</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
+                            <li><a class="dropdown-item" href="./account/c_logout.php">Cerrar Sesion</a></li>
                         </ul>
                     </div>
                 </li>
-                -->
+                <?php } ?>
             </ul>
         </div>
     </nav>

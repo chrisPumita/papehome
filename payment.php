@@ -1,7 +1,7 @@
 <?php
-session_start();
+$titulo = "HOME - Pape Home";
+$path = "./"
 ?>
-
 <!doctype html>
 <html lang="en">
 <head>

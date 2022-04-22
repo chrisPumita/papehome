@@ -1,7 +1,7 @@
 <?php
 
 include_once"../control/controlInventario.php";
-$data =listaProductos();
+$data =listaProductos("none");
 echo json_encode([
     'data' => $data,
 ]);

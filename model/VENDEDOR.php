@@ -109,8 +109,9 @@ class VENDEDOR extends PDODB
 
     /*FUNCIONES VENDEDOR*/
     public function query_valida_user(){
-        $query = "SELECT `id_usuario`, `nombre`, `app`, `apm`, `email`, `pw` 
-                    FROM `usuario` WHERE `id_usuario` = '".$this->getIdVendedor()."' AND `pw` = '".$this->getPw()."'";
+        $query = "select id_vendedor, nombre, app, apm, email, pw, puesto, telefono 
+                        from vendedor where  email = '".$this->getEmail()."' 
+                        AND `pw` = '".$this->getPw()."'";
         $this->connect();
         $result = $this->getData($query);
         $this->close();

@@ -8,73 +8,7 @@
     </div>
     <!-- Swiper -->
     <div class="swiper mySwiper2">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="card py-3">
-                    <img src="./assets/img/default-image.jpg" class="card-img-top" alt="...">
-                    <div class="small">
-                        <h5 class="card-title">Tijeras Economicas</h5>
-                        <p class="text-danger"><del class="text-muted fs-6 mx-4">$50.00</del><strong class="fs-4">$45.00</strong></p>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <button class="btn btn-success" type="submit">Agregar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="card py-3">
-                    <img src="./assets/img/default-image.jpg" class="card-img-top" alt="...">
-                    <div class="small">
-                        <h5 class="card-title">Tijeras Economicas</h5>
-                        <p class="text-danger"><del class="text-muted fs-6 mx-4">$50.00</del><strong class="fs-4">$45.00</strong></p>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <button class="btn btn-success" type="submit">Agregar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="card py-3">
-                    <img src="./assets/img/default-image.jpg" class="card-img-top" alt="...">
-                    <div class="small">
-                        <h5 class="card-title">Tijeras Economicas</h5>
-                        <p class="text-danger"><del class="text-muted fs-6 mx-4">$50.00</del><strong class="fs-4">$45.00</strong></p>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <button class="btn btn-success" type="submit">Agregar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="card py-3">
-                    <img src="./assets/img/default-image.jpg" class="card-img-top" alt="...">
-                    <div class="small">
-                        <h5 class="card-title">Tijeras Economicas</h5>
-                        <p class="text-danger"><del class="text-muted fs-6 mx-4">$50.00</del><strong class="fs-4">$45.00</strong></p>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <button class="btn btn-success" type="submit">Agregar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="card py-3">
-                    <img src="./assets/img/default-image.jpg" class="card-img-top" alt="...">
-                    <div class="small">
-                        <h5 class="card-title">Tijeras Economicas</h5>
-                        <p class="text-danger"><del class="text-muted fs-6 mx-4">$50.00</del><strong class="fs-4">$45.00</strong></p>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <button class="btn btn-success" type="submit">Agregar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="card py-3">
-                    <img src="./assets/img/default-image.jpg" class="card-img-top" alt="...">
-                    <div class="small">
-                        <h5 class="card-title">Tijeras Economicas</h5>
-                        <p class="text-danger"><del class="text-muted fs-6 mx-4">$50.00</del><strong class="fs-4">$45.00</strong></p>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <button class="btn btn-success" type="submit">Agregar</button>
-                    </div>
-                </div>
-            </div>
+        <div class="swiper-wrapper" id="swiper-offers">
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
@@ -126,6 +60,5 @@
                 </div>
             </div>
         </div>
-
     </div>
 </section>

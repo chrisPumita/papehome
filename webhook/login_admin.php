@@ -1,8 +1,9 @@
 <?php
 include_once"../control/controlCuentas.php";
-$no_vendedor = $_POST['no_vendedor'];
+
+$correo = $_POST['correo'];
 $password = $_POST['password'];
-if(verificaCuentaSesion($no_vendedor,$password)){
+if(verificaCuentaSesion($correo,$password)){
     $mensaje = "CUENTA VALIDADA";
     $value = 1;
 }

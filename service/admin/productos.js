@@ -139,28 +139,40 @@ function loadInfoProdcuto(idProducto) {
 
 function loadFotos(idProducto) {
     cargaFotosProducto(idProducto).then(function (response) {
-        console.log(response);
         $("#id_produto_foto").val(idProducto);
         let template = "";
         if (response.numRows>0){
-            template = ``;
+            template = `<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                            <div class="carousel-inner">`;
             let fotos = response.data;
-            console.log(fotos)
+            let cont = 0;
             fotos.forEach((foto)=>{
-                template+= `<div class="swiper-slide">
-                                    <div class="swiper-zoom-container">
-                                        <img src="${foto.path}" />
-                                        <button class="btn btn-danger position-absolute" onClick="removeImage(${foto.id_imagen})">QUITAR</button>
-                                    </div>
-                                </div>`;
+                let active = cont == 0 ? "active": "";
+                    cont ++
+                template+= `<div class="carousel-item ${active}">
+                                <img src="${foto.path}" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                        <button type="button" class="btn btn-danger" onClick="removeImage(${foto.id_imagen});">Eliminar</button>
+                                </div>
+                           </div>`;
             });
+            template+= `</div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>`;
         }
         else{
             template = `<div class="alert alert-danger w-100" role="alert">
                           No se encontraron fotos del producto
                         </div>`;
         }
-        $("#mySwiperFotos").html(template);
+        $("#myFotosGalery").html(template);
     })
 }
 

@@ -1,10 +1,10 @@
 <?php
 /*GENERALES*/
 
-function listaProductos(){
+function listaProductos($filtro){
     include_once "../model/PRODUCTO.php";
     $C = new PRODUCTO();
-    return $C->queryListProducto();
+    return $C->queryListProducto($filtro);
 }
 
 function listaMarcas(){
@@ -37,16 +37,32 @@ function addUpadateProducto($id,$idCat,$idMarca,$sku,$BarCode,$nombre,$descripci
     return $pro->getIdProducto()>0 ? $pro->updateProducto() : $pro->insertProducto();
 }
 
-function consultaProducto($id){
-    include_once "../model/PRODUCTO.php";
-    $pro = new PRODUCTO();
-    $pro->setIdProducto($id);
-    return $pro->queryListProducto();
-}
 
 function consultaFotosProducto($id){
     include_once "../model/PRODUCTO.php";
     $pro = new PRODUCTO();
     $pro->setIdProducto($id);
     return $pro->queryListFotosProducto();
+}
+
+function listaProductosGalery($IdProducto,$filtro){
+    include_once "../model/PRODUCTO.php";
+    include_once "../model/IMAGEN.php";
+    $PRODUCTOS_LIST = array();
+    $PRO = new PRODUCTO();
+    $PRO->setIdProducto($IdProducto);
+    $result =  $PRO->queryListProducto($filtro);
+    foreach ($result as $prod)
+    {
+        $PRO->setIdProducto($prod['id_producto']);
+        $IMG = new IMAGEN();
+        $IMG->setIdProd($PRO->getIdProducto());
+        //Busqueda de imagenes de priducto
+        $tmpProd = array(
+            "producto"=>$prod,
+            "fotos"=>$IMG->getFotos()
+        );
+        array_push($PRODUCTOS_LIST,$tmpProd);
+    }
+    return $PRODUCTOS_LIST;
 }

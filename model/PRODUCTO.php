@@ -146,7 +146,20 @@ class PRODUCTO extends PDODB
         $this->estatus = $estatus;
     }
 
-    function queryListProducto(){
+    function queryListProducto($filtro){
+        $promo = ""; $desc="";
+        switch($filtro){
+            case "offers":
+                $desc = " AND descuento > 0 ";
+                break;
+            case "last";
+                $promo = " ORDER BY id_producto DESC LIMIT 10 ";
+                break;
+            default:
+                $promo = "";
+                break;
+        }
+
     $filtroProducto = $this->getIdProducto() >0 ? " AND p.id_producto = ".$this->getIdProducto() :"";
         $query = "select p.id_producto, p.id_marca, p.id_categoria,
        p.sku, p.barcode, p.nombre, p.descripcion, p.min_alerta, p.presentacion,
@@ -156,8 +169,8 @@ class PRODUCTO extends PDODB
         ON img.id_producto = p.id_producto
        WHERE p.estatus > 0
          AND c.id_categoria = p.id_categoria
-         AND m.id_marca = p.id_marca ".$filtroProducto."
-        group by p.id_producto";
+         AND m.id_marca = p.id_marca ".$filtroProducto." ".$desc."
+        group by p.id_producto ".$promo;
 
         return $this->consultaSQL($query);
     }

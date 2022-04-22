@@ -2,21 +2,22 @@
 
  function crearCuentaUsuario($nombre,$app,$apm,$correo,$pw){
     include_once "../model/CLIENTE_USUARIO.php";
+    include_once "keyGen/generadorClaves.php";
     $USER = new CLIENTE_USUARIO();
-    $USER->setIdUsuario("2");
+    $USER->setIdUsuario(gen_user_id());
     $USER->setNombre($nombre);
     $USER->setApp($app);
     $USER->setApm($apm);
     $USER->setEmail($correo);
-    $USER->setPw($pw);
+    $USER->setPw(md5($pw));
     return $USER->create_usuario();
 }
 
 /*USUARIOS DEL SISTEMA*/
-function verificaCuentaSesion($noVendedor,$pw){
+function verificaCuentaSesion($correo,$pw){
     include_once "../model/VENDEDOR.php";
     $VENDEDOR = new VENDEDOR();
-    $VENDEDOR->setIdVendedor($noVendedor);
+    $VENDEDOR->setEmail($correo);
     $VENDEDOR->setPw(md5($pw));
     $result = $VENDEDOR->query_valida_user();
     if ($result){

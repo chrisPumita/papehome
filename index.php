@@ -43,62 +43,7 @@ $path = "./"
     </div>
     <!-- Swiper -->
     <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <div class="card px-1">
-                    <img src="./assets/img/default-image.jpg" class="card-img-top" alt="...">
-                    <div class="card-body small">
-                        <h5 class="card-title">Tijeras Economicas</h5>
-                        <p class="text-success"><strong class="fs-4">$45.00</strong></p>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <button class="btn btn-success" type="submit">Agregar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="card px-1">
-                    <img src="./assets/img/default-image.jpg" class="card-img-top" alt="...">
-                    <div class="card-body small">
-                        <h5 class="card-title">Tijeras Economicas</h5>
-                        <p class="text-success"><strong class="fs-4">$45.00</strong></p>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <button class="btn btn-success" type="submit">Agregar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="card px-1">
-                    <img src="./assets/img/default-image.jpg" class="card-img-top" alt="...">
-                    <div class="card-body small">
-                        <h5 class="card-title">Tijeras Economicas</h5>
-                        <p class="text-success"><strong class="fs-4">$45.00</strong></p>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <button class="btn btn-success" type="submit">Agregar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="card px-1">
-                    <img src="./assets/img/default-image.jpg" class="card-img-top" alt="...">
-                    <div class="card-body small">
-                        <h5 class="card-title">Tijeras Economicas</h5>
-                        <p class="text-success"><strong class="fs-4">$45.00</strong></p>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <button class="btn btn-success" type="submit">Agregar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <div class="card px-1">
-                    <img src="./assets/img/default-image.jpg" class="card-img-top" alt="...">
-                    <div class="card-body small">
-                        <h5 class="card-title">Tijeras Economicas</h5>
-                        <p class="text-success"><strong class="fs-4">$45.00</strong></p>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <button class="btn btn-success" type="submit">Agregar</button>
-                    </div>
-                </div>
-            </div>
+        <div class="swiper-wrapper" id="swiper-News">
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
@@ -110,6 +55,8 @@ $path = "./"
 <?php include "./includes_general/ofertas_div.php" ?>
 <?php include "./includes_general/footer.php" ?>
 <?php include "./includes_general/js.php" ?>
+
+<script src="./service/shop.js"></script>
 
 <!-- Swiper JS -->
 <!-- Initialize Swiper -->
