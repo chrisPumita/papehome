@@ -7,7 +7,7 @@ $path = "../";
 <head>
     <?php include "../includes_general/header.php" ?>
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.11.5/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../assets/vendors/datatable/datatables.min.css"/>
 
 </head>
 <body>
@@ -64,7 +64,7 @@ include "../includes_general/js.php";
 include "_modal_agregaProducto.php";
 include "_modal_fotos_producto.php";
 ?>
-
+<script src="../service/general/alertas.js"></script>
 <script src="../service/admin/productos.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.11.5/datatables.min.js"></script>
+<script type="text/javascript" src="../assets/vendors/datatable/datatables.min.js"></script>
 </html>

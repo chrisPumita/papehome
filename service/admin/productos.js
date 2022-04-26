@@ -121,9 +121,8 @@ function htmlBuildListCategoria(CATEGORIAS) {
 }
 
 function loadInfoProdcuto(idProducto) {
-    cargaInfoProducto(idProducto).then(function (result) {
-        let prod = result.data[0];
-        console.log(prod)
+    cargaInfoProducto(idProducto,"none").then(function (result) {
+        let prod = result.data[0].producto;
         $("#listCategorias").val(prod.id_categoria)
         $("#listMarcas").val(prod.id_marca)
         $("#sku").val(prod.sku)
@@ -202,14 +201,15 @@ $("#frm_producto").submit(function (event) {
         data: $('#frm_producto').serialize(),
         dataType: "json",
         success: function (result) {
+            console.log(result)
             $("#modalNewProduct").modal('hide');
-            if(result.response=="1"){
+            if(result.response===1){
                 $('#frm_producto')[0].reset();
                 var table = $('#tblProductos').DataTable( {
                     ajax: "data.json"
                 } );
                 table.ajax.reload( null, false );
-                notificacion('success',result.mensaje)
+                notificacion('success',result.mensaje);
             }
             else{
                 alert("ERROR");
@@ -237,8 +237,8 @@ async function cargalistaCategorias() {
 }
 /*ASYNC FUNCTIONS CATEGORIA */
 
-async function cargaInfoProducto(id) {
-    return await peticionDataAjax("../webhook/producto_info.php",{id:id});
+async function cargaInfoProducto(id,filtro) {
+    return await peticionDataAjax("../webhook/producto_info.php",{id:id, filtro:filtro});
 }
 
 

@@ -9,7 +9,6 @@ $path = "./"
     <?php include "./includes_general/header.php" ?>
     <link rel="stylesheet" href="assets/css/style-step.css">
     <title>Compra Realizada con exito</title>
-
 </head>
 <body>
 <?php include "./includes_general/nav.php" ?>

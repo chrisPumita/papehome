@@ -57,6 +57,7 @@ $path = "./"
 <?php include "./includes_general/js.php" ?>
 
 <script src="./service/shop.js"></script>
+<script src="./service/async.js"></script>
 
 <!-- Swiper JS -->
 <!-- Initialize Swiper -->

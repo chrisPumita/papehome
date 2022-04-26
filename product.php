@@ -129,11 +129,9 @@ $path = "./"
 <?php include "./includes_general/ofertas_div.php" ?>
 <?php include "./includes_general/footer.php" ?>
 <?php include "./includes_general/js.php" ?>
-
-
-
+<script src="./service/producto_details.js"></script>
 <!-- Swiper JS -->
-<script src="./assets/swiper/swiper-bundle.min.js"></script>
+<script src="./assets/vendors/swiper/swiper-bundle.min.js"></script>
 <!-- Initialize Swiper -->
 <script>
     let propiedades = {
