@@ -14,7 +14,6 @@ function loadProductos() {
 function loadPromos() {
     cargaProductosHome(0,"offers").then(function (result) {
         let productos = result.data;
-        console.log(result);
         let template = buildHTMLCardProducto(productos);
         $("#swiper-offers").html(template);
     });
@@ -32,18 +31,18 @@ function buildHTMLCardProducto(LS_PRODUCTOS) {
                                                     <del class="text-muted fs-6 mx-4"><i class="fas fa-dollar-sign"></i> ${producto.costo_promedio}</del>
                                                     <strong class="fs-4">$${costoActual}</strong>
                                                 </p>`:
-              `<p class="text-success"><strong class="fs-4">$ ${producto.costo_promedio}</strong></p>`;
-            template += `<div class="swiper-slide">
-                                <div class="card px-1">
-                                    <img src="${foto}" class="card-img-top" style="height: 200px;" alt="...">
-                                    <div class="card-body small">
-                                        <h5 class="card-title">${producto.nombre}</h5>
-                                        ${coste}
-                                         <button class="btn btn-success btn-sm" type="submit">Agregar</button>
-                                         <a href="./product.php?idProducto=${producto.id_producto}" class="btn btn-success btn-sm" type="submit">Detalles</a>
-                                    </div>
-                                </div>
-                            </div>`;
+                                              `<p class="text-success"><strong class="fs-4">$ ${producto.costo_promedio}</strong></p>`;
+                                        template += `<div class="swiper-slide">
+                                                            <div class="card px-1">
+                                                                <img src="${foto}" class="card-img-top" style="height: 200px;" alt="...">
+                                                                <div class="card-body small">
+                                                                    <h5 class="card-title">${producto.nombre}</h5>
+                                                                    ${coste}
+                                                                     <button class="btn btn-success btn-sm" type="submit">Agregar</button>
+                                                                     <a href="./product.php?idProducto=${producto.id_producto}" class="btn btn-success btn-sm" type="submit">Detalles</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>`;
           }
     );
     return template;

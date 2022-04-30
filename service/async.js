@@ -1,13 +1,21 @@
 /*ASYNC FUNCTIONS*/
 async function cargaProductosHome(id,filtro) {
-    return await cargaProductosHomeAjax(id,filtro);
+    let ruta = "./webhook/producto_info.php";
+    let data = {id:id, filtro:filtro};
+    return await loadAsyncGeneral(ruta,data);
 }
 
-async function cargaProductosHomeAjax(id,filtro) {
+async function cargaProductosCarrito(filtro) {
+    let ruta = "./webhook/loadCarrito.php";
+    let data = {filtro:filtro};
+    return await loadAsyncGeneral(ruta,data);
+}
+
+async function loadAsyncGeneral(route,data) {
     return $.ajax({
-        url: "./webhook/producto_info.php",
+        url: route,
         type: 'POST',
-        data:{id:id, filtro:filtro},
+        data: data,
         dataType: "json",
         error: function(error) {
             console.log(error);

@@ -76,4 +76,8 @@ class CLIENTE_USUARIO extends PDODB
             "', '".$this->getEmail()."', '".$this->getPw()."')";
         return $this->ejecutarSQL($sql);
     }
+
+    public function validaCliente(){
+        return true;
+    }
 }

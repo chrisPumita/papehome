@@ -30,3 +30,21 @@ function verificaCuentaSesion($correo,$pw){
     }
 }
 /*USUARIOS DEL SISTEMA*/
+
+/*USUARIOS DEL CLIENTE*/
+function verificaCuentaCliente($correo,$pw){
+    include_once "../model/CLIENTE_USUARIO.php";
+    $CLIE = new CLIENTE_USUARIO();
+    $CLIE->setEmail($correo);
+    $CLIE->setPw(md5($pw));
+    $result = $CLIE->validaCliente();
+    if ($result){
+        session_start();
+        $_SESSION['cliente_name'] = $result[0]['nombre'];
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+/*USUARIOS DEL SISTEMA*/

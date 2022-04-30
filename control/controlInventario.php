@@ -48,10 +48,11 @@ function consultaFotosProducto($id){
 function listaProductosGalery($IdProducto,$filtro){
     include_once "../model/PRODUCTO.php";
     include_once "../model/IMAGEN.php";
-    $PRODUCTOS_LIST = array();
     $PRO = new PRODUCTO();
     $PRO->setIdProducto($IdProducto);
     $result =  $PRO->queryListProducto($filtro);
+
+    $PRODUCTOS_LIST = array();
     foreach ($result as $prod)
     {
         $PRO->setIdProducto($prod['id_producto']);

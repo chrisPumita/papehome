@@ -17,7 +17,7 @@ $path = "./"
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="5000">
                 <div class="card mb-3">
-                    <div class="container-fluid g-0" style="background: url(https://favacard.com.ar/wp-content/uploads/2013/10/PROMO-Cabal-Banner-web-960x300px-01.jpg) top center no-repeat;">
+                    <div class="container-fluid g-0" style="background: url(https://image.shutterstock.com/image-photo/set-school-preschool-childrens-accessories-260nw-1098481166.jpg) top center no-repeat;">
                         <div class="gradiente">
                             <div class="container ">
                                 <div class="row">
@@ -73,31 +73,8 @@ $path = "./"
                     <div class="col align-self-center text-end text-muted">3 Productos</div>
                 </div>
             </div>
-            <?php for($i = 0; $i <10; $i++) { ?>
-            <div class="row border-top border-bottom">
-                <div class="row main align-items-center">
-                    <div class="col-2">
-                        <img src="./assets/img/default-image.jpg" class="card-img-top" alt="...">
-                    </div>
-                    <div class="col">
-                        <div class="row text-muted">Papel</div>
-                        <div class="row">Facia 500 Hojas</div>
-                    </div>
-                    <div class="col-3">
-                        <select class="form-select form-select-sm w-50" aria-label=".form-select-sm example">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-                    </div>
-                    <div class="col-3">
-                        <div class="row text-muted">&dollar; 44.00</div>
-                        <div class="row">x 1 &dollar; 44.00 </div>
-                    </div>
-                    <div class="col-1"><i class="fas fa-times" role="button"></i></div>
-                </div>
+            <div class="row" id="container">
             </div>
-            <?php } ?>
         </div>
         <div class="col-md-4 ">
             <div class="summary">
@@ -105,11 +82,11 @@ $path = "./"
                     <h5><b>Total</b></h5>
                 </div>
                 <hr>
-                <div class="row py-3">
+                <div class="row py-3" id="subtotalBox">
                     <div class="col">3 Productos</div>
                     <div class="col text-right">&dollar; 132.00</div>
                 </div>
-                <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+                <div class="row" id="totalBox" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
                     <div class="col">TOTAL</div>
                     <div class="col text-right">&euro; 137.00</div>
                 </div>
@@ -126,5 +103,11 @@ $path = "./"
 <?php include "./includes_general/footer.php" ?>
 <?php include "./includes_general/js.php" ?>
 
+<script src="./service/cart.js"></script>
+<script>
+    $( document ).ready(function() {
+        cargaCarritoPageHTML();
+    });
+</script>
 </body>
 </html>

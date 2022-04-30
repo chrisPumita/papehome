@@ -25,13 +25,10 @@
                 <li class="nav-item">
                     <a href="./cart.php"  type="button" class="btn position-relative">
                         <i class="fas fa-shopping-cart"></i> Carrito
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        4
-                        <span class="visually-hidden">unread messages</span>
-                      </span>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cantProductos"></span>
                     </a>
                 </li>
-<?php if(!isset($_SESSION['user_name'])){ ?>
+                <?php if(!isset($_SESSION['user_name'])){ ?>
                 <li class="nav-item">
                     <a href="./login.php"  type="button" class="btn position-relative">
                         <i class="fas fa-user"></i> Entrar
@@ -82,7 +79,6 @@
                     <li class="nav-item">
                         <a class="nav-link fs-6" href="#">Nosotros</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link fs-6" href="#" tabindex="-1" aria-disabled="true">Contacto</a>
                     </li>

@@ -8,3 +8,4 @@
 <script src="<?php echo $path; ?>assets/vendors/swiper/swiper-bundle.min.js"></script>
 <script src="<?php echo $path; ?>assets/vendors/apexcharts/apexcharts.min.js"></script>
 
+<script src="<?php echo $path; ?>service/async.js"></script>
