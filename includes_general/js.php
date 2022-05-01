@@ -9,3 +9,4 @@
 <script src="<?php echo $path; ?>assets/vendors/apexcharts/apexcharts.min.js"></script>
 
 <script src="<?php echo $path; ?>service/async.js"></script>
+<script src="<?php echo $path; ?>service/general/alertas.js"></script>

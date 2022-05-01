@@ -11,6 +11,12 @@ async function cargaProductosCarrito(filtro) {
     return await loadAsyncGeneral(ruta,data);
 }
 
+async function agregaProductoCarrito(idProducto,cantidad) {
+    let ruta = "./webhook/addProductCart.php";
+    let data = {idProducto:idProducto, cantidad:cantidad};
+    return await loadAsyncGeneral(ruta,data);
+}
+
 async function loadAsyncGeneral(route,data) {
     return $.ajax({
         url: route,

@@ -56,8 +56,9 @@ $path = "./"
 <?php include "./includes_general/footer.php" ?>
 <?php include "./includes_general/js.php" ?>
 
-<script src="./service/shop.js"></script>
+
 <script src="./service/cart.js"></script>
+<script src="./service/shop.js"></script>
 
 <!-- Swiper JS -->
 <!-- Initialize Swiper -->

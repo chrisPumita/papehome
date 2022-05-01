@@ -3,28 +3,40 @@ $( document ).ready(function() {
     cargaCarrito();
 });
 
+window.onload = function() {
+
+  };
+
+
 var TMP_CARRITO;
 
-function cargaCarrito() {
+async function cargaCarrito() {
     cargaProductosCarrito().then(function (result) {
         let productos =  result.data;
         TMP_CARRITO = result.data;
-        if (TMP_CARRITO != null){
-            let total= 0;
-            productos.forEach(function(a){
-
-                total += a.producto.stock >0 ? parseInt(a.producto.cantidad): 0;
-            });
-            $("#cantProductos").html(total);
-        }
-        else{
-            $("#cantProductos").html("0");
-        }
+        console.log(TMP_CARRITO)
+        iconCartNav(result.data);
+        
     })
+    return await true;
+}
+
+function iconCartNav(productos) {
+    if (TMP_CARRITO != null){
+        let total= 0;
+        productos.forEach(function(a){
+            total += a.producto.stock >0 ? parseInt(a.producto.cantidad): 0;
+        });
+        $("#cantProductos").html(total);
+    }
+    else{
+        $("#cantProductos").html("0");
+    }
 }
 
  function cargaCarritoPageHTML() {
      cargaProductosCarrito().then(function (result) {
+
          let template = "";
          let LISTA = result.data;
          let sumaProductos = 0;
@@ -93,4 +105,23 @@ function cargaCarrito() {
          $("#subtotalBox").html(tmp);
          $("#totalBox").html(tmp2);
      })
+}
+
+function addProductoCart(idProducto) {
+    agregaProductoCarrito(idProducto,1).then(function (result) {
+        console.log(result);
+        if(result.response===1){
+            notificacion('success',result.mensaje);
+            cargaCarrito();
+            try {
+                loadProductos();
+                loadPromos();
+            } catch (error) {
+                console.log("OTHER PAGE")
+            }
+        }
+        else{
+            alert("ERROR");
+        }
+    })
 }

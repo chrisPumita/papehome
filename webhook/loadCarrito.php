@@ -23,4 +23,4 @@ $rest = array(
     "numRows"=>$rows
 );
 
-echo json_encode($rest);
+echo json_encode($rest); 
