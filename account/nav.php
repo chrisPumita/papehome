@@ -23,12 +23,9 @@
             <ul class="nav justify-content-end">
 
                 <li class="nav-item">
-                    <a href="../cart.php"  type="button" class="btn position-relative">
+                    <a href="./cart.php"  type="button" class="btn position-relative">
                         <i class="fas fa-shopping-cart"></i> Carrito
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        4
-                        <span class="visually-hidden">unread messages</span>
-                      </span>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cantProductos"></span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -37,10 +34,10 @@
                             <i class="fas fa-user"></i> Cuenta
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                            <li><a class="dropdown-item" href="#">Mis Pedidos</a></li>
-                            <li><a class="dropdown-item" href="#">Cuenta</a></li>
+                            <li><a class="dropdown-item" href="./">Mis Pedidos</a></li>
+                            <li><a class="dropdown-item" href="./direcciones.php">Perfil</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="../">Cerrar Sesion</a></li>
+                            <li><a class="dropdown-item" href="./c_logout.php">Cerrar Sesion</a></li>
                         </ul>
                     </div>
                 </li>
@@ -73,7 +70,6 @@
                     <li class="nav-item">
                         <a class="nav-link fs-6" href="#">Nosotros</a>
                     </li>
-
                     <li class="nav-item">
                         <a class="nav-link fs-6" href="#" tabindex="-1" aria-disabled="true">Contacto</a>
                     </li>

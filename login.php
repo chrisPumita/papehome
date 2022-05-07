@@ -1,6 +1,14 @@
 <?php
-$titulo = "HOME - Profesor";
-$path = "./"
+$titulo = "HOME - Iniciar Sesion";
+$path = "./";
+session_start();
+// El siguiente key se crea cuando se inicia sesión
+$_SESSION["idSesion"] = session_id();
+if(isset($_SESSION['cliente_name']))
+{
+    //Si ya existe una sesion reedirecciona a home
+    header('Location: ./');
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -20,8 +28,9 @@ $path = "./"
                 </div>
                 <div class="card shadow-lg">
                     <div class="card-body p-5">
+                        <div id="resp"></div>
                         <h1 class="fs-4 card-title fw-bold mb-4 text-center">Iniciar Sesión</h1>
-                        <form method="POST" class="needs-validation" novalidate="" autocomplete="off">
+                        <form id="frm_login" class="needs-validation" novalidate="" autocomplete="off">
                             <div class="mb-3">
                                 <label class="mb-2 text-muted" for="email">E-Mail</label>
                                 <input id="email" type="email" class="form-control" name="email" value="" required>
@@ -31,9 +40,9 @@ $path = "./"
                                 <input id="password" type="password" class="form-control" name="password" required>
                             </div>
                             <div class="align-items-center d-flex">
-                                <a href="./account" class="btn btn-primary" type="submit" class="btn btn-primary ms-auto">
-                                    Iniciar
-                                </a>
+                                <button class="btn btn-primary mr-3 mt-3 mb-3" type="submit">
+                                    <i class="fas fa-check-circle"></i> Iniciar
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -51,5 +60,6 @@ $path = "./"
     </div>
 </section>
 <?php include "./includes_general/js.php" ?>
+<script src="./service/login.js"></script>
 </body>
 </html>

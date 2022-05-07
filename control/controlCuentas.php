@@ -41,6 +41,8 @@ function verificaCuentaCliente($correo,$pw){
     if ($result){
         session_start();
         $_SESSION['cliente_name'] = $result[0]['nombre'];
+        $_SESSION['id_usuario'] = $result[0]['id_usuario'];
+
         return true;
     }
     else{

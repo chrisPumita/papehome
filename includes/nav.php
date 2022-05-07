@@ -66,7 +66,8 @@
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-black-50 fs-6" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" >
+                        <a class="nav-link dropdown-toggle text-black-50 fs-6" href="#" id="navbarScrollingDropdown" role="button"
+                           data-bs-toggle="dropdown" >
                             Categorias
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">

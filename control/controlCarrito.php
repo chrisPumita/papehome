@@ -4,7 +4,7 @@ function loadCarrito($idSesion){
     include_once "../model/CARRITO.php";
     $CART = new CARRITO();
     $CART->setIdSesion($idSesion);
-    $idCliente = isset($_SESSION['cliente_name']) ? $_SESSION['cliente_name'] : null;
+    $idCliente = isset($_SESSION['cliente_name']) ? $_SESSION['id_usuario'] : null;
     $CART->setIdUsuario($idCliente);
     $PRODUCTOS_LIST = array();
     
@@ -47,4 +47,22 @@ function addProductoCarrito($idProducto,$cant){
     $CARR = new CARRITO();
     $CARR->setIdSesion($idSesion);
     return $CARR->insertaProductoCarrito($idProducto,$cant);
+}
+
+function updateCantCarrito($idProducto,$cant){
+    session_start();
+    $idSesion = session_id();
+    include_once "../model/CARRITO.php";
+    $CARR = new CARRITO();
+    $CARR->setIdSesion($idSesion);
+    return $CARR->updateCantProdCarrito($idProducto,$cant);
+}
+
+function removeProductoCarrito($idProducto){
+    session_start();
+    $idSesion = session_id();
+    include_once "../model/CARRITO.php";
+    $CARR = new CARRITO();
+    $CARR->setIdSesion($idSesion);
+    return $CARR->deleteProductoCarrito($idProducto);
 }

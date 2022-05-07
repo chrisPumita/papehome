@@ -17,6 +17,18 @@ async function agregaProductoCarrito(idProducto,cantidad) {
     return await loadAsyncGeneral(ruta,data);
 }
 
+async function updateCantProductoCarrito(idProducto,cantidad) {
+    let ruta = "./webhook/updateCantProd.php";
+    let data = {idProducto:idProducto, cantidad:cantidad};
+    return await loadAsyncGeneral(ruta,data);
+}
+
+async function removeProductoCarrito(idProducto) {
+    let ruta = "./webhook/removeProd.php";
+    let data = {idProducto:idProducto};
+    return await loadAsyncGeneral(ruta,data);
+}
+
 async function loadAsyncGeneral(route,data) {
     return $.ajax({
         url: route,

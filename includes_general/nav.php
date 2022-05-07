@@ -28,7 +28,7 @@
                         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cantProductos"></span>
                     </a>
                 </li>
-                <?php if(!isset($_SESSION['user_name'])){ ?>
+                <?php if(!isset($_SESSION['cliente_name'])){ ?>
                 <li class="nav-item">
                     <a href="./login.php"  type="button" class="btn position-relative">
                         <i class="fas fa-user"></i> Entrar

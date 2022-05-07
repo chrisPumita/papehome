@@ -10,3 +10,5 @@
 
 <script src="<?php echo $path; ?>service/async.js"></script>
 <script src="<?php echo $path; ?>service/general/alertas.js"></script>
+
+<script src="<?php echo $path; ?>service/cart.js"></script>

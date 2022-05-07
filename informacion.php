@@ -1,5 +1,6 @@
 <?php
-$titulo = "HOME - Pape Home";
+session_start();
+$titulo = "HOME - Informacion de envio";
 $path = "./"
 ?>
 

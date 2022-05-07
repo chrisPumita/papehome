@@ -59,7 +59,6 @@ class CARRITO extends PDODB
     }
 
     public function queryLoadCarrito(){
-        $cliente = $this->getIdUsuario() != null ? " AND id_usuario = ".$this->getIdUsuario() : "";
         $query = "select tmp.cantidad, pro.id_producto, sku, barcode, nombre, descripcion,
        presentacion, costo_promedio, descuento, stock, estatus,
        tmp.id_sesion, id_usuario, create_at, m.id_marca, marca, c.id_categoria, categoria
@@ -68,15 +67,13 @@ from carrito cart
          inner join productos pro on pro.id_producto = tmp.id_producto
          inner join marca m on pro.id_marca = m.id_marca
          inner join categoria c on pro.id_categoria = c.id_categoria
-where estatus > 0 and cart.id_sesion = '".$this->getIdSesion()."'  ".$cliente;
+where estatus > 0 and cart.id_sesion = '".$this->getIdSesion()."'  ";
     return $this->consultaSQL($query);
     }
 
     public function querySearchCarrito(){
-        $cliente = $this->getIdUsuario() != null ? " AND id_usuario = ".$this->getIdUsuario() : "";
-
         $query = "select id_sesion, id_usuario, create_at 
-                    from carrito where id_sesion = '".$this->getIdSesion()."'". $cliente;
+                    from carrito where id_sesion = '".$this->getIdSesion()."'";
         return $this->consultaSQL($query);
     }
 

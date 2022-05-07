@@ -1,5 +1,10 @@
 <?php
-$titulo = "HOME - Pape Home";
+session_start();
+if(!isset($_SESSION['cliente_name']))
+{
+    header('Location: ./login.php');
+}
+$titulo = "HOME - Pago";
 $path = "./"
 ?>
 <!doctype html>
@@ -16,7 +21,7 @@ $path = "./"
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="./index.php">Inicio</a></li>
             <li class="breadcrumb-item"><a href="./cart.php">Carrito</a></li>
-            <li class="breadcrumb-item"><a href="./cart.php">Información</a></li>
+            <li class="breadcrumb-item"><a href="./informacion.php">Información</a></li>
             <li class="breadcrumb-item active" aria-current="page">Pago</li>
         </ol>
     </nav>

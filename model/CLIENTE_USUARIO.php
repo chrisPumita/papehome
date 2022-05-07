@@ -78,6 +78,8 @@ class CLIENTE_USUARIO extends PDODB
     }
 
     public function validaCliente(){
-        return true;
+        $sql = "SELECT `id_usuario`, `nombre`, `app`, `apm`, `email`, `created_at` 
+                FROM `usuario` WHERE `email` = '".$this->getEmail()."' AND `pw` = '".$this->getPw()."'";
+        return $this->consultaSQL($sql);
     }
 }

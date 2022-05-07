@@ -1,5 +1,6 @@
 <?php
-$titulo = "HOME - Pape Home";
+session_start();
+$titulo = "HOME - Carrito";
 $path = "./"
 ?>
 
@@ -83,12 +84,10 @@ $path = "./"
                 </div>
                 <hr>
                 <div class="row py-3" id="subtotalBox">
-                    <div class="col">3 Productos</div>
-                    <div class="col text-right">&dollar; 132.00</div>
+                </div>
+                <div class="row py-3" id="totalEnvio">
                 </div>
                 <div class="row" id="totalBox" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
-                    <div class="col">TOTAL</div>
-                    <div class="col text-right">&euro; 137.00</div>
                 </div>
                 <a href="./informacion.php" class="btn btn-success w-100" id="button-addon2" type="button">Confirmar Productos</a>
             </div>
@@ -103,7 +102,7 @@ $path = "./"
 <?php include "./includes_general/footer.php" ?>
 <?php include "./includes_general/js.php" ?>
 
-<script src="./service/cart.js"></script>
+
 <script>
     $( document ).ready(function() {
         cargaCarritoPageHTML();

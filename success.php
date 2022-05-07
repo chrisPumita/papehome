@@ -1,6 +1,12 @@
 <?php
-$titulo = "HOME - Pape Home";
+session_start();
+if(!isset($_SESSION['cliente_name']))
+{
+    header('Location: ./login.php');
+}
+$titulo = "HOME - Compra Realizada";
 $path = "./"
+
 ?>
 
 <!doctype html>

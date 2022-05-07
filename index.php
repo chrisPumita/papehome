@@ -1,4 +1,5 @@
 <?php
+session_start();
 $titulo = "HOME - Pape Home";
 $path = "./"
 ?>
@@ -56,8 +57,6 @@ $path = "./"
 <?php include "./includes_general/footer.php" ?>
 <?php include "./includes_general/js.php" ?>
 
-
-<script src="./service/cart.js"></script>
 <script src="./service/shop.js"></script>
 
 <!-- Swiper JS -->

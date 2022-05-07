@@ -1,5 +1,9 @@
 <?php
 session_start();
+if(!isset($_SESSION['cliente_name']))
+{
+    header('Location: ../login.php');
+}
 $titulo = "HOME - Pape Home";
 $path = "../";
 ?>
@@ -85,5 +89,6 @@ $path = "../";
 <?php include "../includes_general/footer.php" ?>
 <?php include "../includes_general/js.php"?>
 
+<script src="../service/cart.js"></script>
 </body>
 </html>
