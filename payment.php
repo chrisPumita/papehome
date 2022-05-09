@@ -264,7 +264,7 @@ $path = "./"
                     identificationNumber
                 } = cardForm.getCardFormData();
 
-                fetch("/process_payment", {
+                fetch("./process_payment.php", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
