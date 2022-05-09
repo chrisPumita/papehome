@@ -1,4 +1,4 @@
 <?php
 session_start();
 session_unset();
-echo "<script>location.href ='../';</script>";
+echo "<script>window.history.go(-1)</script>";

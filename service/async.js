@@ -29,6 +29,14 @@ async function removeProductoCarrito(idProducto) {
     return await loadAsyncGeneral(ruta,data);
 }
 
+//ASYNC CARGA DIRECCIONES CLIENTE
+async function loadDirecciones() {
+    let ruta = "./webhook/cargaDirecciones.php";
+    let data = {load:"none"};
+    return await loadAsyncGeneral(ruta,data);
+}
+
+
 async function loadAsyncGeneral(route,data) {
     return $.ajax({
         url: route,

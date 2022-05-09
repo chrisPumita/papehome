@@ -39,7 +39,7 @@
                 <li class="nav-item">
                     <div class="dropdown">
                         <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-user"></i> Cuenta
+                            <i class="fas fa-user"></i> Hola <?php echo $_SESSION['cliente_name'] ?>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <li><a class="dropdown-item" href="./account">Mis Pedidos</a></li>

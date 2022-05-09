@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 5.0.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-04-2022 a las 18:07:32
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.2.12
+-- Tiempo de generación: 08-05-2022 a las 02:03:17
+-- Versión del servidor: 10.4.14-MariaDB
+-- Versión de PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -39,11 +38,17 @@ CREATE TABLE `agregado_carrito_tmp` (
 --
 
 INSERT INTO `agregado_carrito_tmp` (`id_sesion`, `id_producto`, `cantidad`) VALUES
+('d9vjnuh56c8q0rvels7k61s7og', 14, '1.00'),
+('d9vjnuh56c8q0rvels7k61s7og', 16, '1.00'),
 ('fm7hfujnchrq0rbieuj2lt1he6', 4, '10.00'),
 ('fm7hfujnchrq0rbieuj2lt1he6', 6, '1.00'),
 ('fm7hfujnchrq0rbieuj2lt1he6', 8, '2.00'),
 ('fm7hfujnchrq0rbieuj2lt1he6', 10, '3.00'),
-('fm7hfujnchrq0rbieuj2lt1he6', 14, '20.00');
+('fm7hfujnchrq0rbieuj2lt1he6', 14, '20.00'),
+('jb5qqkth2e5s8u6taunjjk6v1b', 4, '12.00'),
+('jb5qqkth2e5s8u6taunjjk6v1b', 6, '1.00'),
+('jtc37vkdf866es9md1u19hjcfr', 4, '1.00'),
+('jtc37vkdf866es9md1u19hjcfr', 6, '1.00');
 
 -- --------------------------------------------------------
 
@@ -54,7 +59,7 @@ INSERT INTO `agregado_carrito_tmp` (`id_sesion`, `id_producto`, `cantidad`) VALU
 CREATE TABLE `carrito` (
   `id_sesion` varchar(100) NOT NULL,
   `id_usuario` bigint(20) DEFAULT NULL,
-  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -62,7 +67,11 @@ CREATE TABLE `carrito` (
 --
 
 INSERT INTO `carrito` (`id_sesion`, `id_usuario`, `create_at`) VALUES
-('fm7hfujnchrq0rbieuj2lt1he6', NULL, '2022-04-29 23:12:56');
+('b7du7mf563c1qovnkci39erqfo', NULL, '2022-05-07 17:42:15'),
+('d9vjnuh56c8q0rvels7k61s7og', NULL, '2022-05-07 16:41:53'),
+('fm7hfujnchrq0rbieuj2lt1he6', NULL, '2022-04-29 23:12:56'),
+('jb5qqkth2e5s8u6taunjjk6v1b', NULL, '2022-04-30 16:36:49'),
+('jtc37vkdf866es9md1u19hjcfr', NULL, '2022-05-01 23:33:41');
 
 -- --------------------------------------------------------
 
@@ -73,7 +82,7 @@ INSERT INTO `carrito` (`id_sesion`, `id_usuario`, `create_at`) VALUES
 CREATE TABLE `categoria` (
   `id_categoria` int(5) NOT NULL,
   `categoria` varchar(30) DEFAULT NULL,
-  `venta_online` tinyint(2) NOT NULL DEFAULT '1'
+  `venta_online` tinyint(2) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -115,7 +124,7 @@ CREATE TABLE `detalle_venta` (
 --
 
 CREATE TABLE `direcciones` (
-  `id_dir` bigint(20) NOT NULL,
+  `id_dir` int(5) NOT NULL,
   `id_usuario` bigint(20) DEFAULT NULL,
   `nombre` varchar(50) DEFAULT NULL,
   `apellidos` varchar(50) DEFAULT NULL,
@@ -126,9 +135,17 @@ CREATE TABLE `direcciones` (
   `estado` varchar(50) DEFAULT NULL,
   `municipio` varchar(50) DEFAULT NULL,
   `colonia` varchar(50) DEFAULT NULL,
-  `referencias` text,
+  `referencias` text DEFAULT NULL,
   `empresa` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `direcciones`
+--
+
+INSERT INTO `direcciones` (`id_dir`, `id_usuario`, `nombre`, `apellidos`, `telefono`, `celular`, `calle`, `cp`, `estado`, `municipio`, `colonia`, `referencias`, `empresa`) VALUES
+(2, 152957130787851, 'Juanita', 'Perez', '5565241529', '5522656911', 'Puerto Vllarta 17', 54405, 'Estado de México', 'Nicolas Romero', 'Juarez', 'Casa 2 pisos', 'ReCkrea'),
+(3, 152957130787851, 'Juan', 'Temerario', '5512457845', '5523568956', 'Tamoico 12', 54405, 'Nayarit', 'Acoyac', 'Libertad', 'Casa 3 pisos', 'NA');
 
 -- --------------------------------------------------------
 
@@ -139,7 +156,7 @@ CREATE TABLE `direcciones` (
 CREATE TABLE `imagen` (
   `id_imagen` int(5) NOT NULL,
   `id_producto` int(5) DEFAULT NULL,
-  `path` text
+  `path` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -161,11 +178,11 @@ CREATE TABLE `ingreso` (
   `id_ingreso` int(10) NOT NULL,
   `id_producto` int(5) DEFAULT NULL,
   `id_proveedor` int(10) DEFAULT NULL,
-  `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `date_create` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `costo_compra` decimal(7,2) DEFAULT NULL,
   `costo_operacion` decimal(7,2) DEFAULT NULL,
   `costo_venta` decimal(7,2) DEFAULT NULL,
-  `cantiada` decimal(7,2) DEFAULT '0.00'
+  `cantiada` decimal(7,2) DEFAULT 0.00
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -222,7 +239,7 @@ CREATE TABLE `productos` (
   `sku` int(10) DEFAULT NULL,
   `barcode` varchar(30) DEFAULT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `descripcion` text,
+  `descripcion` text DEFAULT NULL,
   `min_alerta` decimal(7,2) DEFAULT NULL,
   `presentacion` varchar(30) DEFAULT NULL,
   `costo_promedio` decimal(7,2) DEFAULT NULL,
@@ -240,12 +257,12 @@ INSERT INTO `productos` (`id_producto`, `id_categoria`, `id_marca`, `sku`, `barc
 (4, 3, 24, 101, '165156156', 'Lápiz con Goma Número 2 Hexagonal', '• Lápiz Mirado Paper Mate #2 de madera 100% reciclada. • Más suave, más intenso, borrador que no mancha ni rompe el papel.\r\n• Banda roja para mostrar la calidad controlada.\r\n• Material no tóxico.', '10.00', 'PIEZA', '5.00', '2.50', '60.00', 1),
 (6, 1, 15, 102, '25612561', 'Papel Opalina Carta Blanco 100/H', 'Papel Opalina Tamaño Carta Blanco C/100 hojas', '10.00', 'PIEZA', '2.00', '0.00', '10.00', 1),
 (8, 3, 17, 103, '', 'Bolígrafo Gel Stick 5mm Negro', 'Bolígrafo Gel Stick 5mm Negro Blt Paper Mate 2066232', '5.00', 'PIEZA', '7.50', '0.50', '30.00', 1),
-(10, 3, 9, 923995, '00730021', 'Bolígrafo Punto Mediano Stick Negro ', 'Bolígrafo Punto Mediano Stick Negro Bic Dura+ Bic 923995', '5.00', 'PIEZA', '5.00', '0.50', '0.00', 1),
-(13, 6, 15, 108, '', 'Producto X', 'Producto prueba', '10.00', 'PIEZA', '5.00', '1.00', '0.00', 1),
-(14, 6, 20, 110, '', 'Crayola', 'Crayola 12 colores tamaño mediano', '10.00', 'CAJA', '23.00', '15.00', '0.00', 1),
-(16, 10, 15, 11111, '', 'paleta', 'qqqq', '1.00', 'PIEZA', '10.00', '2.00', '0.00', 1),
-(17, 6, 4, 1005, '1156156156', 'Pluma Azul', 'Pluma de color azul bic punta mediano', '1.00', 'PIEZA', '5.00', '10.00', '0.00', 1),
-(19, 6, 7, 180, '2542542424524', 'Libreta Profesional C/Chico', 'Libreta profesional C/GRANDE doble espiral de fulanitos', '50.00', 'PIEZA', '100.00', '20.00', '0.00', 1);
+(10, 3, 9, 923995, '00730021', 'Bolígrafo Punto Mediano Stick Negro ', 'Bolígrafo Punto Mediano Stick Negro Bic Dura+ Bic 923995', '5.00', 'PIEZA', '5.00', '0.50', '30.00', 1),
+(13, 6, 15, 108, '', 'Producto X', 'Producto prueba', '10.00', 'PIEZA', '5.00', '1.00', '20.00', 1),
+(14, 6, 20, 110, '', 'Crayola', 'Crayola 12 colores tamaño mediano', '10.00', 'CAJA', '23.00', '15.00', '20.00', 1),
+(16, 10, 15, 11111, '', 'paleta', 'qqqq', '1.00', 'PIEZA', '10.00', '2.00', '10.00', 1),
+(17, 6, 4, 1005, '1156156156', 'Pluma Azul', 'Pluma de color azul bic punta mediano', '1.00', 'PIEZA', '5.00', '10.00', '50.00', 1),
+(19, 6, 7, 180, '2542542424524', 'Libreta Profesional C/Chico', 'Libreta profesional C/GRANDE doble espiral de fulanitos', '50.00', 'PIEZA', '100.00', '20.00', '80.00', 1);
 
 -- --------------------------------------------------------
 
@@ -271,7 +288,7 @@ CREATE TABLE `usuario` (
   `apm` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `pw` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -315,19 +332,19 @@ INSERT INTO `vendedor` (`id_vendedor`, `nombre`, `app`, `apm`, `email`, `pw`, `p
 CREATE TABLE `venta_pedido` (
   `id_venta_pedido` bigint(20) NOT NULL,
   `id_usuario` bigint(20) DEFAULT NULL,
-  `id_dir_entrega` bigint(20) DEFAULT NULL,
+  `id_dir_entrega` int(5) DEFAULT NULL,
   `id_vendedor` int(5) DEFAULT NULL,
   `subtotal` decimal(7,2) DEFAULT NULL,
   `descuento` decimal(7,2) DEFAULT NULL,
   `iva` decimal(7,2) DEFAULT NULL,
   `total` decimal(7,2) DEFAULT NULL,
-  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `update_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `update_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `forma_entrega` varchar(30) DEFAULT NULL,
   `forma_pago` varchar(30) DEFAULT NULL,
   `estatus_pago` varchar(30) DEFAULT NULL,
   `estatus_envio` varchar(30) DEFAULT NULL,
-  `no_guia` text,
+  `no_guia` text DEFAULT NULL,
   `estatus_venta` tinyint(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -438,6 +455,12 @@ ALTER TABLE `categoria`
   MODIFY `id_categoria` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
+-- AUTO_INCREMENT de la tabla `direcciones`
+--
+ALTER TABLE `direcciones`
+  MODIFY `id_dir` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
@@ -459,7 +482,7 @@ ALTER TABLE `marca`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id_producto` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedor`
@@ -522,8 +545,8 @@ ALTER TABLE `productos`
 --
 ALTER TABLE `venta_pedido`
   ADD CONSTRAINT `venta_pedido_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `venta_pedido_ibfk_2` FOREIGN KEY (`id_dir_entrega`) REFERENCES `direcciones` (`id_dir`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `venta_pedido_ibfk_3` FOREIGN KEY (`id_vendedor`) REFERENCES `vendedor` (`id_vendedor`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `venta_pedido_ibfk_3` FOREIGN KEY (`id_vendedor`) REFERENCES `vendedor` (`id_vendedor`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `venta_pedido_ibfk_4` FOREIGN KEY (`id_dir_entrega`) REFERENCES `direcciones` (`id_dir`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

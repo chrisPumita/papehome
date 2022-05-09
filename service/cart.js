@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-    console.log("CARGANDO CARRITO")
+    
     cargaCarrito();
 });
 
@@ -31,7 +31,7 @@ function iconCartNav(productos) {
      cargaProductosCarrito().then(function (result) {
          let template = "";
          let LISTA = result.data;
-         console.log(LISTA)
+         
          let sumaProductos = 0;
          let subtotal = 0;
          let total = 0;
@@ -118,7 +118,7 @@ function iconCartNav(productos) {
 
 function addProductoCart(idProducto) {
     agregaProductoCarrito(idProducto,1).then(function (result) {
-        console.log(result);
+        
         if(result.response===1){
             notificacion('success',result.mensaje);
             cargaCarrito();
@@ -126,7 +126,7 @@ function addProductoCart(idProducto) {
                 loadProductos();
                 loadPromos();
             } catch (error) {
-                console.log("OTHER PAGE")
+                
             }
         }
         else{
@@ -141,7 +141,7 @@ $(document).on("change", ".selectCant", function ()
     var select = $(this)[0];
     var cant = select.options[select.selectedIndex].text;
     var id_producto = select.options[select.selectedIndex].value;
-    console.log(cant,id_producto);
+    
     updateCantProductoCarrito(id_producto,cant).then(function (result) {
         cargaCarrito();
         cargaCarritoPageHTML();
@@ -151,7 +151,7 @@ $(document).on("change", ".selectCant", function ()
 
 function removeCartProduct(id) {
     removeProductoCarrito(id).then(function(result){
-        console.log(result)
+        
         notificacion('success',result.mensaje);
         cargaCarrito();
         cargaCarritoPageHTML();

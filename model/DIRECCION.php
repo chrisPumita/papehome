@@ -145,4 +145,44 @@ class DIRECCION extends PDODB
     {
         $this->empresa = $empresa;
     }
+
+    public function queryRegistraDireccion()
+    {
+        $query = "INSERT INTO `direcciones` 
+        (`id_dir`, `id_usuario`, `nombre`, `apellidos`, `telefono`, `celular`,
+         `calle`, `cp`, `estado`, `municipio`, `colonia`, `referencias`, `empresa`) 
+         VALUES (NULL, '".$this->getIdUsuario()."', '".$this->getNombre()."',
+          '".$this->getApellidos()."', '".$this->getTelefono()."', '".$this->getCelular()."',
+           '".$this->getCalle()."', '".$this->getCp()."', '".$this->getEstado()."',
+            '".$this->getMunicipio()."', '".$this->getColonia()."', 
+            '".$this->getReferencias()."', '".$this->getEmpresa()."')";
+            return $this->ejecutarSQL($query);
+    }
+
+    public function queryConsultaDirecciones()
+    {
+        $query = "SELECT `id_dir`, `id_usuario`, `nombre`, `apellidos`, `telefono`, 
+        `celular`, `calle`, `cp`, `estado`, `municipio`, `colonia`, `referencias`, `empresa` 
+        FROM `direcciones` WHERE  `id_usuario` = ".$this->getIdUsuario()." ORDER BY `calle`";
+        return $this->consultaSQL($query);
+    }
+
+    public function queryUpdateDireccion(){
+        $query = "UPDATE `direcciones` SET 
+        `nombre` = '".$this->getNombre()."', 
+        `apellidos` = '".$this->getApellidos()."', 
+        `telefono` = '".$this->getTelefono()."', 
+        `celular` = '".$this->getCelular()."', 
+        `calle` = '".$this->getCalle()."', 
+        `cp` = '".$this->getCp()."', 
+        `estado` = '".$this->getEstado()."', 
+        `municipio` = '".$this->getMunicipio()."', 
+        `colonia` = '".$this->getColonia()."', 
+        `referencias` = '".$this->getReferencias()."', 
+        `empresa` = '".$this->getEmpresa()."' 
+        WHERE `direcciones`.`id_dir` = ".$this->getIdDir();
+        return $this->ejecutarSQL($query);
+    }
+    
+    
 }
