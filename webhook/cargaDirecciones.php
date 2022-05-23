@@ -1,8 +1,9 @@
 <?php
 include_once"../control/controlCuentas.php";
 session_start();
+$idDir = $_POST['idDir'];
 $idCliente = $_SESSION["id_usuario"];
-$lista =consultaDIrecciones($idCliente);
+$lista =consultaDIrecciones($idCliente,$idDir);
 if(count($lista)>0){
     $data = $lista;
     $mensaje = "Se econtraron direcciones";

@@ -5,8 +5,11 @@ if(!isset($_SESSION['cliente_name']))
     header('Location: ./login.php');
 }
 $titulo = "HOME - Pago";
-$path = "./"
+$path = "./";
+$dir = $_GET['dir'];
+echo "<script> var ID_DIR = ".$dir."</script>";
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -38,9 +41,7 @@ $path = "./"
                                 <i class="fas fa-user" aria-hidden="true"></i> Contacto
                             </div>
                             <div class="col-10">
-                                <div class="card-body">
-                                    <h6 class="card-title">Pioquinto Hernandez Christian René</h6>
-                                    <p class="card-text">correo@gmail.com</p>
+                                <div class="card-body" id="cardContacto">
                                 </div>
                             </div>
                         </div>
@@ -51,11 +52,7 @@ $path = "./"
                                 <i class="fas fa-truck"></i> Enviar a:
                             </div>
                             <div class="col-10">
-                                <div class="card-body">
-                                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                        Ab animi neque voluptatem voluptates. Autem laudantium qui sed ullam voluptate!
-                                        At blanditiis dicta, impedit iusto nemo quos repellendus tenetur voluptatem
-                                        voluptatibus.</p>
+                                <div class="card-body" id="cardDir">
                                 </div>
                             </div>
                         </div>
@@ -64,31 +61,31 @@ $path = "./"
                 <hr>
                 <div class="row">
                     <div class="col">
-                        <!-- Step #2 -->
-                        <form id="form-checkout" >
-                            <input type="text" name="cardNumber" id="form-checkout__cardNumber" />
-                            <input type="text" name="expirationDate" id="form-checkout__expirationDate" />
-                            <input type="text" name="cardholderName" id="form-checkout__cardholderName"/>
-                            <input type="email" name="cardholderEmail" id="form-checkout__cardholderEmail"/>
-                            <input type="text" name="securityCode" id="form-checkout__securityCode" />
-                            <select name="issuer" id="form-checkout__issuer"></select>
-                            <input type="text" name="identificationNumber" id="form-checkout__identificationNumber"/>
-                            <select name="installments" id="form-checkout__installments"></select>
-                            <button type="submit" id="form-checkout__submit">Pagar</button>
-                            <progress value="0" class="progress-bar">Cargando...</progress>
-                        </form>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
                         <h4>Pago</h4>
+                    </div>
+                    <div class="card mb-1 w-100" >
+                        <div class="row g-0">
+                            <div class="col-12 m-auto">
+                                <div class="card-body">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" checked name="radBtnEnvio" id="radBtnEnvio2"
+                                               value="paypal"  onclick="radioSelect();">
+                                        <label class="form-check-label" for="radBtnEnvio2">
+                                            Pagar con  <i class="fab fa-paypal"></i>
+
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="card mb-1 w-100">
                         <div class="row g-0">
                             <div class="col-12 m-auto">
                                 <div class="card-body">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="radBtnEnvio" id="radBtnEnvio1" checked>
+                                        <input class="form-check-input" type="radio" name="radBtnEnvio" id="radBtnEnvio1"
+                                               value="sucursal"  onclick="radioSelect();">
                                         <label class="form-check-label" for="radBtnEnvio1">
                                             Pagar en Sucursal
                                         </label>
@@ -97,26 +94,14 @@ $path = "./"
                             </div>
                         </div>
                     </div>
-                    <div class="card mb-1 w-100" >
-                        <div class="row g-0">
-                            <div class="col-12 m-auto">
-                                <div class="card-body">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="radBtnEnvio" id="radBtnEnvio2" >
-                                        <label class="form-check-label" for="radBtnEnvio2">
-                                            Pagar con  <i class="fab fa-paypal"></i>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                     <div class="card mb-3 w-100" >
                         <div class="row g-0">
                             <div class="col-12 m-auto">
                                 <div class="card-body">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="radBtnEnvio" id="radBtnEnvio3" >
+                                        <input class="form-check-input" type="radio" name="radBtnEnvio" id="radBtnEnvio3"
+                                               value="deposito"  onclick="radioSelect();">
                                         <label class="form-check-label" for="radBtnEnvio3">
                                             Depósito / Transferencia Bancaria
                                         </label>
@@ -128,15 +113,18 @@ $path = "./"
                 </div>
                 <div class="row">
                     <div class="col mb-1 w-100">
-                        <div class="row g-0">
+                        <div class="row g-0" id="pagoSelectContainer">
                             <div class="card">
                                 <div class="card-header">
-                                    Información de la Sucursal.
+                                    Pagar con PayPal
                                 </div>
                                 <div class="card-body">
-                                    <h5 class="card-title">Special title treatment</h5>
-                                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                    <a href="#" class="btn btn-primary"> <i class="fas fa-map-marker-alt"></i> Ver Ubicación</a>
+                                    <div id="smart-button-container">
+                                        <div style="text-align: center;">
+                                            <div id="paypal-button-container"></div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -171,23 +159,17 @@ $path = "./"
                     <div class="col"><strong>Producto</strong></div>
                     <div class="col text-right"><strong>Costo</strong></div>
                 </div>
-                <?php
-                for ($i = 0; $i <3; $i++){
-                    ?>
-                    <div class="row py-1">
-                        <div class="col">3 Productos</div>
-                        <div class="col text-right">&dollar; 132.00</div>
-                    </div>
-                <?php } ?>
+                <div class="row py-3" id="container"></div>
                 <hr>
-                <div class="row py-2">
-                    <div class="col"><strong>Subtotal</strong></div>
-                    <div class="col text-right text-danger"><strong>$ 00.00</strong></div>
+                <div class="row py-3" id="subtotalBox">
+                </div>
+                <div class="row py-3" id="totalEnvio">
                 </div>
                 <hr>
-                <div class="row py-2">
-                    <div class="col"><strong>Total</strong></div>
-                    <div class="col text-right text-danger"><strong>$ 00.00</strong></div>
+                <div class="row py-3" id="totalBox">
+                </div>
+                <div class="row py-3" id="btnConfirm" >
+
                 </div>
             </div>
         </div>
@@ -200,104 +182,49 @@ $path = "./"
 </section>
 <?php include "./includes_general/footer.php" ?>
 <?php include "./includes_general/js.php" ?>
-<script src="https://sdk.mercadopago.com/js/v2"></script>
+<script src="./service/resume_cart.js"></script>
+<script src="./service/pago.js"></script>
+
+<script src="https://www.paypal.com/sdk/js?client-id=sb&enable-funding=venmo&currency=MXN" data-sdk-integration-source="button-factory"></script>
 <script>
-    const mp = new MercadoPago('TEST-7ee75943-ceca-49c3-88aa-06ff207dd291');
-    // Add step #3
-</script>
+    function initPayPalButton() {
+        paypal.Buttons({
+            style: {
+                shape: 'rect',
+                color: 'blue',
+                layout: 'horizontal',
+                label: 'paypal',
 
-<script>
-    // Step #3
-    const cardForm = mp.cardForm({
-        amount: "100.5",
-        autoMount: true,
-        form: {
-            id: "form-checkout",
-            cardholderName: {
-                id: "form-checkout__cardholderName",
-                placeholder: "Titular de la tarjeta",
             },
-            cardholderEmail: {
-                id: "form-checkout__cardholderEmail",
-                placeholder: "E-mail",
-            },
-            cardNumber: {
-                id: "form-checkout__cardNumber",
-                placeholder: "Número de la tarjeta",
-            },
-            expirationDate: {
-                id: "form-checkout__expirationDate",
-                placeholder: "Fecha de vencimiento (MM/YYYY)",
-            },
-            securityCode: {
-                id: "form-checkout__securityCode",
-                placeholder: "Código de seguridad",
-            },
-            installments: {
-                id: "form-checkout__installments",
-                placeholder: "Cuotas",
-            },
-            identificationNumber: {
-                id: "form-checkout__identificationNumber",
-                placeholder: "Número de documento",
-            },
-            issuer: {
-                id: "form-checkout__issuer",
-                placeholder: "Banco emisor",
-            },
-        },
-        callbacks: {
-            onFormMounted: error => {
-                if (error) return console.warn("Form Mounted handling error: ", error);
-                console.log("Form mounted");
-            },
-            onSubmit: event => {
-                event.preventDefault();
 
-                const {
-                    paymentMethodId: payment_method_id,
-                    issuerId: issuer_id,
-                    cardholderEmail: email,
-                    amount,
-                    token,
-                    installments,
-                    identificationNumber
-                } = cardForm.getCardFormData();
-
-                fetch("./process_payment.php", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({
-                        token,
-                        issuer_id,
-                        payment_method_id,
-                        transaction_amount: Number(amount),
-                        installments: Number(installments),
-                        description: "Descripción del producto",
-                        payer: {
-                            email,
-                            identification: {
-                                number: identificationNumber,
-                            },
-                        },
-                    }),
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{"amount":{"currency_code":"MXN","value":1}}]
                 });
             },
-            onFetching: (resource) => {
-                console.log("Fetching resource: ", resource);
 
-                // Animate progress bar
-                const progressBar = document.querySelector(".progress-bar");
-                progressBar.removeAttribute("value");
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(orderData) {
 
-                return () => {
-                    progressBar.setAttribute("value", "0");
-                };
+                    // Full available details
+                    console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
+
+                    // Show a success message within this page, e.g.
+                    const element = document.getElementById('paypal-button-container');
+                    element.innerHTML = '';
+                    element.innerHTML = '<h3>Thank you for your payment!</h3>';
+
+                    // Or go to another URL:  actions.redirect('thank_you.html');
+
+                });
+            },
+
+            onError: function(err) {
+                console.log(err);
             }
-        },
-    });
+        }).render('#paypal-button-container');
+    }
+    initPayPalButton();
 </script>
 </body>
 </html>

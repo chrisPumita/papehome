@@ -161,9 +161,10 @@ class DIRECCION extends PDODB
 
     public function queryConsultaDirecciones()
     {
+        $idDir = $this->getIdDir()>0 ? " AND id_dir =". $this->getIdDir():"";
         $query = "SELECT `id_dir`, `id_usuario`, `nombre`, `apellidos`, `telefono`, 
         `celular`, `calle`, `cp`, `estado`, `municipio`, `colonia`, `referencias`, `empresa` 
-        FROM `direcciones` WHERE  `id_usuario` = ".$this->getIdUsuario()." ORDER BY `calle`";
+        FROM `direcciones` WHERE  `id_usuario` = ".$this->getIdUsuario().$idDir." ORDER BY `calle`";
         return $this->consultaSQL($query);
     }
 

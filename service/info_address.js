@@ -2,10 +2,12 @@ $( document ).ready(function() {
     cargaDirecciones();
 });
 
+
+
 var DIRECCIONES;
 
 function cargaDirecciones() {
-    loadDirecciones().then(function (result) {
+    loadDirecciones(0).then(function (result) {
         DIRECCIONES = result.data;
         selectDirHTML(DIRECCIONES);
     });
@@ -40,11 +42,9 @@ function loadDirForm(obj) {
     let dirSelect = $('#select_dir').val();
     if (dirSelect === "none") {
         $('#frm_registraDir')[0].reset();
-        
+        $("#btnConfirm").html(``);
     } else {
-
         let tmpDir = DIRECCIONES.find(element => element.id_dir == dirSelect);
-
         $("#idDir").val(tmpDir.id_dir);
         $("#apellidos").val(tmpDir.apellidos);
         $("#calle_numero").val(tmpDir.calle);
@@ -57,18 +57,10 @@ function loadDirForm(obj) {
         $("#nombre").val(tmpDir.nombre);
         $("#referencias").val(tmpDir.referencias);
         $("#telefono").val(tmpDir.telefono);
+        let idDir = $("#select_dir").val();
+        $("#btnConfirm").html(`<a href="./payment.php?dir=${idDir}" class="btn btn-primary" type="button">Proceder al pago</a>`);
     }
 }
-
-/*
-    lista.forEach(
-        dir=>{
-    
-        }
-      );
-*/
-
-//frm_registraDir
 
 
 $("#frm_registraDir").submit(function (event) {

@@ -1,6 +1,5 @@
 $( document ).ready(function() {
-    
-    cargaCarrito();
+
 });
 
 var TMP_CARRITO;

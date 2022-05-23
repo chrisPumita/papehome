@@ -53,10 +53,11 @@ function verificaCuentaCliente($correo,$pw){
 }
 
 
-function consultaDIrecciones($idCliente){
+function consultaDIrecciones($idCliente,$idDir){
     include_once "../model/DIRECCION.php";
     $DIR = new DIRECCION();
     $DIR->setIdUsuario($idCliente);
+    $DIR->setIdDir($idDir);
     return $DIR->queryConsultaDirecciones();
 }
 

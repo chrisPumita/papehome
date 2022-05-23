@@ -233,26 +233,17 @@
             <div class="col"><strong>Producto</strong></div>
             <div class="col text-right"><strong>Costo</strong></div>
         </div>
-        <?php
-        for ($i = 0; $i <3; $i++){
-            ?>
-            <div class="row py-1">
-                <div class="col">3 Productos</div>
-                <div class="col text-right">&dollar; 132.00</div>
-            </div>
-        <?php } ?>
+        <div class="row py-3" id="container"></div>
         <hr>
-        <div class="row py-2">
-            <div class="col"><strong>Subtotal</strong></div>
-            <div class="col text-right text-danger"><strong>$ 00.00</strong></div>
+        <div class="row py-3" id="subtotalBox">
+        </div>
+        <div class="row py-3" id="totalEnvio">
         </div>
         <hr>
-        <div class="row py-2">
-            <div class="col"><strong>Total</strong></div>
-            <div class="col text-right text-danger"><strong>$ 00.00</strong></div>
+        <div class="row py-3" id="totalBox">
         </div>
-        <div class="row py-3">
-            <a href="./payment.php" class="btn btn-success w-100" id="button-addon2" type="button">Proceder al pago</a>
+        <div class="row py-3" id="btnConfirm" >
+
         </div>
     </div>
 </div>

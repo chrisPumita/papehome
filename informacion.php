@@ -46,7 +46,8 @@ $path = "./"
             if (!isset($_SESSION['cliente_name'])) {
                 echo '<script src="./service/login.js"></script>';
             } else {
-                echo '<script src="./service/info_address.js"></script>';
+                echo '<script src="./service/info_address.js"></script>
+                        <script src="./service/resume_cart.js"></script>';
             }
         ?>
         <!-- END DINAMIC SESSION -->
