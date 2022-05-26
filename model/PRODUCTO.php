@@ -184,10 +184,10 @@ class PRODUCTO extends PDODB
         $query = "INSERT INTO `productos` (
                          `id_producto`, `id_categoria`, `id_marca`, `sku`, 
                          `barcode`, `nombre`, `descripcion`, `min_alerta`, 
-                         `presentacion`, `costo_promedio`, `descuento`, `stock`, `estatus`) VALUES 
+                         `presentacion`, `costo_promedio`, `descuento`,`estatus`,stock) VALUES 
          (NULL, '".$this->getIdCategoria()."', '".$this->getIdMarca()."', '".$this->getSku()."', '".$this->getBarcode()."',
           '".$this->getNombre()."', '".$this->getDescripcion()."', '".$this->getMinAlerta()."', '".$this->getPresentacion()."',
-           '".$this->getCostoPromedio()."', '".$this->getDescuento()."', '0', '1')";
+           '".$this->getCostoPromedio()."', '".$this->getDescuento()."', '1','".$this->getStock()."')";
 
         return $this->ejecutarSQL($query);
     }
@@ -197,13 +197,37 @@ class PRODUCTO extends PDODB
                     SET t.id_categoria   = ".$this->getIdCategoria().",
                         t.id_marca       = ".$this->getIdMarca().",
                         t.sku            = ".$this->getSku().",
+                        t.descripcion    = '".$this->getDescripcion()."',
                         t.barcode        = '".$this->getBarcode()."',
                         t.nombre         = '".$this->getNombre()."',
                         t.min_alerta     = ".$this->getMinAlerta().",
                         t.presentacion   = '".$this->getPresentacion()."',
                         t.costo_promedio = ".$this->getCostoPromedio().",
+                        t.stock          = ".$this->getStock().",
                         t.descuento      = ".$this->getDescuento()."
                     WHERE t.id_producto = ".$this->getIdProducto().";";
         return $this->ejecutarSQL($query);
+    }
+
+    function queryBuscaProductos($descuento, $categoria, $marca,$keyword){
+        $filtroDesc = $descuento ? " AND descuento > 0 ":"";
+        $filtroCat = $categoria != "none" ? " AND categoria LIKE '%".$categoria."%'" : "";
+        $filtroMarca = $marca != "none" ? " AND marca LIKE '%".$marca."%'" : "";
+        $filtrokeyword = $keyword != "none" ? " AND p.nombre LIKE '%Pluma%' OR p.descripcion LIKE '%CC%'" : "";
+        $query = "select p.id_producto, sku, barcode, nombre, descripcion,
+                       min_alerta, presentacion, costo_promedio, descuento, 
+                       stock, estatus, m.marca, c.categoria
+                from productos p, categoria c, marca m
+                where c.id_categoria = p.id_categoria AND m.id_marca = p.id_marca
+                AND c.venta_online = 1  ".$filtroDesc.$filtroCat.$filtroMarca.$filtrokeyword;
+        return $this->consultaSQL($query);
+    }
+
+    function subirImagen($path){
+        include_once "IMAGEN.php";
+        $IMG = new IMAGEN();
+        $IMG->setIdProd($this->getIdProducto());
+        $IMG->setPath($path);
+        return $IMG->querySubeFoto();
     }
 }

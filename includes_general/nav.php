@@ -32,7 +32,6 @@
                 <li class="nav-item">
                     <a href="./login.php"  type="button" class="btn position-relative">
                         <i class="fas fa-user"></i> Entrar
-                      </span>
                     </a>
                 </li>
                 <?php } else {?>
@@ -43,7 +42,6 @@
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <li><a class="dropdown-item" href="./account">Mis Pedidos</a></li>
-                            <li><a class="dropdown-item" href="./account/direcciones.php">Perfil</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="./account/c_logout.php">Cerrar Sesion</a></li>
                         </ul>
@@ -66,15 +64,11 @@
                         <a class="nav-link dropdown-toggle text-black-50 fs-6" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" >
                             Categorias
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li><a class="dropdown-item" href="./search.php">Categoria 1</a></li>
-                            <li><a class="dropdown-item" href="./search.php">Categoria 1</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="./search.php">Categoria 1</a></li>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown" id="containerCategorias">
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fs-6" aria-current="page" href="#">Ofertas</a>
+                        <a class="nav-link fs-6" aria-current="page" href="./search.php?cat=none&keword=none&off=true">Ofertas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fs-6" href="#">Nosotros</a>

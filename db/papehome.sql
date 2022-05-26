@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.3
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-05-2022 a las 02:03:17
--- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.2.34
+-- Tiempo de generación: 26-05-2022 a las 04:16:05
+-- Versión del servidor: 10.1.37-MariaDB
+-- Versión de PHP: 7.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -38,17 +39,15 @@ CREATE TABLE `agregado_carrito_tmp` (
 --
 
 INSERT INTO `agregado_carrito_tmp` (`id_sesion`, `id_producto`, `cantidad`) VALUES
-('d9vjnuh56c8q0rvels7k61s7og', 14, '1.00'),
-('d9vjnuh56c8q0rvels7k61s7og', 16, '1.00'),
-('fm7hfujnchrq0rbieuj2lt1he6', 4, '10.00'),
-('fm7hfujnchrq0rbieuj2lt1he6', 6, '1.00'),
-('fm7hfujnchrq0rbieuj2lt1he6', 8, '2.00'),
-('fm7hfujnchrq0rbieuj2lt1he6', 10, '3.00'),
-('fm7hfujnchrq0rbieuj2lt1he6', 14, '20.00'),
-('jb5qqkth2e5s8u6taunjjk6v1b', 4, '12.00'),
-('jb5qqkth2e5s8u6taunjjk6v1b', 6, '1.00'),
-('jtc37vkdf866es9md1u19hjcfr', 4, '1.00'),
-('jtc37vkdf866es9md1u19hjcfr', 6, '1.00');
+('a5ouh70h0qsgc2041ilk0irb6u', 1, '1.00'),
+('a5ouh70h0qsgc2041ilk0irb6u', 4, '1.00'),
+('a5ouh70h0qsgc2041ilk0irb6u', 6, '1.00'),
+('a5ouh70h0qsgc2041ilk0irb6u', 8, '1.00'),
+('a5ouh70h0qsgc2041ilk0irb6u', 10, '1.00'),
+('jb5qqkth2e5s8u6taunjjk6v1b', 1, '1.00'),
+('jb5qqkth2e5s8u6taunjjk6v1b', 4, '1.00'),
+('jb5qqkth2e5s8u6taunjjk6v1b', 8, '1.00'),
+('jb5qqkth2e5s8u6taunjjk6v1b', 17, '1.00');
 
 -- --------------------------------------------------------
 
@@ -59,7 +58,7 @@ INSERT INTO `agregado_carrito_tmp` (`id_sesion`, `id_producto`, `cantidad`) VALU
 CREATE TABLE `carrito` (
   `id_sesion` varchar(100) NOT NULL,
   `id_usuario` bigint(20) DEFAULT NULL,
-  `create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -67,11 +66,8 @@ CREATE TABLE `carrito` (
 --
 
 INSERT INTO `carrito` (`id_sesion`, `id_usuario`, `create_at`) VALUES
-('b7du7mf563c1qovnkci39erqfo', NULL, '2022-05-07 17:42:15'),
-('d9vjnuh56c8q0rvels7k61s7og', NULL, '2022-05-07 16:41:53'),
-('fm7hfujnchrq0rbieuj2lt1he6', NULL, '2022-04-29 23:12:56'),
-('jb5qqkth2e5s8u6taunjjk6v1b', NULL, '2022-04-30 16:36:49'),
-('jtc37vkdf866es9md1u19hjcfr', NULL, '2022-05-01 23:33:41');
+('a5ouh70h0qsgc2041ilk0irb6u', NULL, '2022-05-25 03:15:02'),
+('jb5qqkth2e5s8u6taunjjk6v1b', NULL, '2022-05-26 00:53:06');
 
 -- --------------------------------------------------------
 
@@ -82,7 +78,7 @@ INSERT INTO `carrito` (`id_sesion`, `id_usuario`, `create_at`) VALUES
 CREATE TABLE `categoria` (
   `id_categoria` int(5) NOT NULL,
   `categoria` varchar(30) DEFAULT NULL,
-  `venta_online` tinyint(2) NOT NULL DEFAULT 1
+  `venta_online` tinyint(2) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -114,8 +110,22 @@ CREATE TABLE `detalle_venta` (
   `id_venta_pedido` bigint(20) NOT NULL,
   `id_producto` int(5) NOT NULL,
   `cantidad` decimal(7,2) DEFAULT NULL,
-  `precio_vta` decimal(7,2) DEFAULT NULL
+  `precio_vta` decimal(7,2) DEFAULT NULL,
+  `descuento` decimal(7,2) NOT NULL DEFAULT '0.00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `detalle_venta`
+--
+
+INSERT INTO `detalle_venta` (`id_venta_pedido`, `id_producto`, `cantidad`, `precio_vta`, `descuento`) VALUES
+(22052404665371, 1, '26.00', '12.00', '0.50'),
+(22052426800749, 1, '10.00', '12.00', '0.50'),
+(22052426800749, 10, '10.00', '5.00', '0.50'),
+(22052426800749, 19, '10.00', '100.00', '20.00'),
+(22052486510922, 10, '1.00', '5.00', '0.50'),
+(22052486510922, 14, '1.00', '23.00', '15.00'),
+(22052486510922, 16, '1.00', '10.00', '2.00');
 
 -- --------------------------------------------------------
 
@@ -135,7 +145,7 @@ CREATE TABLE `direcciones` (
   `estado` varchar(50) DEFAULT NULL,
   `municipio` varchar(50) DEFAULT NULL,
   `colonia` varchar(50) DEFAULT NULL,
-  `referencias` text DEFAULT NULL,
+  `referencias` text,
   `empresa` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -144,7 +154,7 @@ CREATE TABLE `direcciones` (
 --
 
 INSERT INTO `direcciones` (`id_dir`, `id_usuario`, `nombre`, `apellidos`, `telefono`, `celular`, `calle`, `cp`, `estado`, `municipio`, `colonia`, `referencias`, `empresa`) VALUES
-(2, 152957130787851, 'Juanita', 'Perez', '5565241529', '5522656911', 'Puerto Vllarta 17', 54405, 'Estado de México', 'Nicolas Romero', 'Juarez', 'Casa 2 pisos', 'ReCkrea'),
+(2, 152957130787851, 'Christian', 'Pioquinto', '+525565241529', '5565241529', 'Puerto Vllarta 17', 54405, 'Estado de México', 'Nicolas Romero', 'Juarez', 'Casa 2 pisos', 'ReCkrea'),
 (3, 152957130787851, 'Juan', 'Temerario', '5512457845', '5523568956', 'Tamoico 12', 54405, 'Nayarit', 'Acoyac', 'Libertad', 'Casa 3 pisos', 'NA');
 
 -- --------------------------------------------------------
@@ -156,17 +166,8 @@ INSERT INTO `direcciones` (`id_dir`, `id_usuario`, `nombre`, `apellidos`, `telef
 CREATE TABLE `imagen` (
   `id_imagen` int(5) NOT NULL,
   `id_producto` int(5) DEFAULT NULL,
-  `path` text DEFAULT NULL
+  `path` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcado de datos para la tabla `imagen`
---
-
-INSERT INTO `imagen` (`id_imagen`, `id_producto`, `path`) VALUES
-(1, 1, 'https://tonypapelerias.vtexassets.com/arquivos/ids/211386-1200-auto?v=637733205061400000&width=1200&height=auto&aspect=true'),
-(2, 10, 'https://tonypapelerias.vtexassets.com/arquivos/ids/213492-1200-auto?v=637733876762930000&width=1200&height=auto&aspect=true'),
-(3, 10, 'https://tonypapelerias.vtexassets.com/arquivos/ids/213676-1200-auto?v=637733882982900000&width=1200&height=auto&aspect=true');
 
 -- --------------------------------------------------------
 
@@ -178,11 +179,11 @@ CREATE TABLE `ingreso` (
   `id_ingreso` int(10) NOT NULL,
   `id_producto` int(5) DEFAULT NULL,
   `id_proveedor` int(10) DEFAULT NULL,
-  `date_create` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `date_create` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `costo_compra` decimal(7,2) DEFAULT NULL,
   `costo_operacion` decimal(7,2) DEFAULT NULL,
   `costo_venta` decimal(7,2) DEFAULT NULL,
-  `cantiada` decimal(7,2) DEFAULT 0.00
+  `cantiada` decimal(7,2) DEFAULT '0.00'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -239,7 +240,7 @@ CREATE TABLE `productos` (
   `sku` int(10) DEFAULT NULL,
   `barcode` varchar(30) DEFAULT NULL,
   `nombre` varchar(50) DEFAULT NULL,
-  `descripcion` text DEFAULT NULL,
+  `descripcion` text,
   `min_alerta` decimal(7,2) DEFAULT NULL,
   `presentacion` varchar(30) DEFAULT NULL,
   `costo_promedio` decimal(7,2) DEFAULT NULL,
@@ -261,8 +262,9 @@ INSERT INTO `productos` (`id_producto`, `id_categoria`, `id_marca`, `sku`, `barc
 (13, 6, 15, 108, '', 'Producto X', 'Producto prueba', '10.00', 'PIEZA', '5.00', '1.00', '20.00', 1),
 (14, 6, 20, 110, '', 'Crayola', 'Crayola 12 colores tamaño mediano', '10.00', 'CAJA', '23.00', '15.00', '20.00', 1),
 (16, 10, 15, 11111, '', 'paleta', 'qqqq', '1.00', 'PIEZA', '10.00', '2.00', '10.00', 1),
-(17, 6, 4, 1005, '1156156156', 'Pluma Azul', 'Pluma de color azul bic punta mediano', '1.00', 'PIEZA', '5.00', '10.00', '50.00', 1),
-(19, 6, 7, 180, '2542542424524', 'Libreta Profesional C/Chico', 'Libreta profesional C/GRANDE doble espiral de fulanitos', '50.00', 'PIEZA', '100.00', '20.00', '80.00', 1);
+(17, 6, 4, 1005, '1156156156', 'Pluma Azul', 'Pluma de color azul bic punta mediano', '1.00', 'PIEZA', '50.00', '10.00', '50.00', 1),
+(19, 6, 7, 180, '2542542424524', 'Libreta Profesional C/Chico', 'Libreta profesional C/GRANDE doble espiral de fulanitos', '50.00', 'PIEZA', '100.00', '20.00', '80.00', 1),
+(22, 4, 15, 55555, '', 'Lapiz Adhesivo', 'Pegamento Lápiz Adhesivo Tubo de 8 g con 30 Piezas', '1.00', 'PIEZA', '218.00', '0.00', '0.00', 1);
 
 -- --------------------------------------------------------
 
@@ -288,7 +290,7 @@ CREATE TABLE `usuario` (
   `apm` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `pw` varchar(50) DEFAULT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -321,7 +323,8 @@ CREATE TABLE `vendedor` (
 --
 
 INSERT INTO `vendedor` (`id_vendedor`, `nombre`, `app`, `apm`, `email`, `pw`, `puesto`, `telefono`) VALUES
-(314206372, 'Christian', 'Pioquinto', 'Hernandez', 'christian@gmail.com', '4a7d1ed414474e4033ac29ccb8653d9b', 'Programmer', '5565241529');
+(1, 'E', 'COMMERCE', NULL, 'comercio@algo.com', '00000', 'Tienda Virtual', NULL),
+(314206372, 'Christian', 'Pioquinto', 'Hernandez', 'admin@gmail.com', '4a7d1ed414474e4033ac29ccb8653d9b', 'Programmer', '5565241529');
 
 -- --------------------------------------------------------
 
@@ -338,15 +341,25 @@ CREATE TABLE `venta_pedido` (
   `descuento` decimal(7,2) DEFAULT NULL,
   `iva` decimal(7,2) DEFAULT NULL,
   `total` decimal(7,2) DEFAULT NULL,
-  `create_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `update_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `costo_envio` decimal(7,2) NOT NULL DEFAULT '0.00',
+  `create_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `update_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `forma_entrega` varchar(30) DEFAULT NULL,
   `forma_pago` varchar(30) DEFAULT NULL,
   `estatus_pago` varchar(30) DEFAULT NULL,
   `estatus_envio` varchar(30) DEFAULT NULL,
-  `no_guia` text DEFAULT NULL,
+  `no_guia` text,
   `estatus_venta` tinyint(3) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `venta_pedido`
+--
+
+INSERT INTO `venta_pedido` (`id_venta_pedido`, `id_usuario`, `id_dir_entrega`, `id_vendedor`, `subtotal`, `descuento`, `iva`, `total`, `costo_envio`, `create_at`, `update_at`, `forma_entrega`, `forma_pago`, `estatus_pago`, `estatus_envio`, `no_guia`, `estatus_venta`) VALUES
+(22052404665371, 152957130787851, 3, 1, '251.16', '0.50', '47.84', '299.00', '150.00', '2022-05-25 03:15:00', '2022-05-25 03:15:00', 'ENVIO A DOMICILIO', 'Pago por Deposito/Transferenci', 'Esperando Pago', 'EN PREPRACION', NULL, 1),
+(22052426800749, 152957130787851, 2, 1, '806.40', '21.00', '153.60', '960.00', '0.00', '2022-05-25 02:40:20', '2022-05-25 02:40:20', 'ENVIO A DOMICILIO', 'Pago por Deposito/Transferenci', 'Esperando Pago', 'EN PREPRACION', NULL, 1),
+(22052486510922, 152957130787851, 2, 1, '17.22', '17.50', '3.28', '20.50', '150.00', '2022-05-25 02:39:10', '2022-05-25 02:39:10', 'ENVIO A DOMICILIO', 'Pago por Deposito/Transferenci', 'Esperando Pago', 'EN PREPRACION', NULL, 1);
 
 --
 -- Índices para tablas volcadas
@@ -458,13 +471,13 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `direcciones`
 --
 ALTER TABLE `direcciones`
-  MODIFY `id_dir` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_dir` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `imagen`
 --
 ALTER TABLE `imagen`
-  MODIFY `id_imagen` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_imagen` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `ingreso`
@@ -482,7 +495,7 @@ ALTER TABLE `marca`
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_producto` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT de la tabla `proveedor`

@@ -142,7 +142,7 @@ echo "<script> var ID_DIR = ".$dir."</script>";
                         </div>
                         <div class="col-6">
                             <div class="align-items-center d-flex">
-                                <a href="./success.php" class="btn btn-success w-100" id="button-addon2" type="button">Confirmar Compra</a>
+                                <button onClick="confirmaVenta();" class="btn btn-success w-100" id="button-addon2" type="button">Confirmar Compra</button>
                             </div>
                         </div>
                     </div>

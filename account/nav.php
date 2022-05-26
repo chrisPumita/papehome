@@ -19,15 +19,8 @@
 <div class="container  bg-light">
     <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="./"><img src="../assets/img/logo.png" alt="" width="150"></a>
+            <a class="navbar-brand" href="../"><img src="../assets/img/logo.png" alt="" width="150"></a>
             <ul class="nav justify-content-end">
-
-                <li class="nav-item">
-                    <a href="./cart.php"  type="button" class="btn position-relative">
-                        <i class="fas fa-shopping-cart"></i> Carrito
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" id="cantProductos"></span>
-                    </a>
-                </li>
                 <li class="nav-item">
                     <div class="dropdown">
                         <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -35,7 +28,6 @@
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <li><a class="dropdown-item" href="./">Mis Pedidos</a></li>
-                            <li><a class="dropdown-item" href="./direcciones.php">Perfil</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="./c_logout.php">Cerrar Sesion</a></li>
                         </ul>
@@ -57,11 +49,7 @@
                         <a class="nav-link dropdown-toggle text-black-50 fs-6" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" >
                             Categorias
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                            <li><a class="dropdown-item" href="../search.php">Categoria 1</a></li>
-                            <li><a class="dropdown-item" href="../search.php">Categoria 1</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="../search.php">Categoria 1</a></li>
+                        <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown" id="containerCategorias">
                         </ul>
                     </li>
                     <li class="nav-item">

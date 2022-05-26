@@ -46,11 +46,41 @@ function radioSelect() {
                                 <div class="card-body">
                                     <h5 class="card-title">Relizar pago en Bancomer</h5>
                                     <p class="card-text">Numero de Cuenta: <strong>1451561516156561</strong></p>
-                                    
-                                    <img src="./assets/img/bbva.png" alt="" with="150">
+                                    <div class="col">
+                                        <img class="img-thumbnail" src="./assets/img/bbva.png" alt="">
+                                    </div>
                                 </div>
                             </div>`;
             break;
     }
     $("#pagoSelectContainer").html(template);
+}
+
+function confirmaVenta() {
+    if( $('#chkTerms').prop('checked') ) {
+        let idDir = ID_DIR;
+        let formaPago = $('input:radio[name=radBtnEnvio]:checked').val();
+        guardaVenta(idDir,formaPago).then(function(rest){
+            console.log(rest);
+            if(rest.response == 1){
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Pedido confirmado',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                setTimeout( function() {
+                    window.location.href = "./success.php?idPedido="+rest.idPedido;
+                    }, 1500 );
+            }
+        })
+    }
+    else{
+        Swal.fire(
+            'Acepte los Terminos y Condiciones',
+            'Necesita aceptar los terminos y condiciones para procesar la venta',
+            'warning'
+        )
+    }
 }

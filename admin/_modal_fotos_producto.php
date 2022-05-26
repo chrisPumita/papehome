@@ -35,11 +35,13 @@
                     </div>
                     <div class="col-12 py-3">
                         <h5>Subir Nueva Foto</h5>
-                        <form id="frm_dube_foto">
+                        <form id="frm-upload-file" enctype="multipart/form-data">
                             <div class="input-group">
-                                <input type="text" id="id_produto_foto">
-                                <input type="file" class="form-control" id="imagenFoto" name="imagenFoto" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                                <button class="btn btn-outline-primary" type="button" id="inputGroupFileAddon04">Subir</button>
+                                <input type="hidden" id="id_produto_foto" name="id_produto_foto" >
+                                <div class="input-group">
+                                    <input type="file" class="form-control" accept="image/gif,image/jpeg,image/webp" id="archivo" name="archivo" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                    <button class="btn btn-outline-primary" type="submit">Subir</button>
+                                </div>
                             </div>
                         </form>
                     </div>

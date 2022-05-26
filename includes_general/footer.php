@@ -4,30 +4,29 @@
         <div class="container">
             <div class="row gy-4 gx-5">
                 <div class="col-lg-4 col-md-6">
-                    <a class="navbar-brand py-3" href="#"><img src="./assets/img/logo.png" alt="" width="150"></a>
-                    <p class="small text-muted py-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                    <a class="navbar-brand py-3" href="#"><img src="<?php echo $path; ?>assets/img/logo.png" alt="" width="150"></a>
+                    <p class="small text-muted py-3">Tu tienda virtual en tu casa</p>
                 </div>
                 <div class="col-lg-2 col-md-6">
                     <h5 class="text-white mb-3">Links</h5>
                     <ul class="list-unstyled text-muted">
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Get started</a></li>
-                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="#">Ofertas</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-2 col-md-6">
                     <h5 class="text-white mb-3">Legales</h5>
                     <ul class="list-unstyled text-muted">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Get started</a></li>
+                        <li><a href="#">Aviso de Privacidad</a></li>
+                        <li><a href="#">Terminos y Condiciones</a></li>
+                        <li><a href="#">Envio Gratis</a></li>
                         <li><a href="#">FAQ</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <h5 class="text-white mb-3">Newsletter</h5>
-                    <p class="small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                    <p class="small text-muted">Suscribete y obten ofertas exlusivas, cupones y más.</p>
                     <form action="#">
                         <div class="input-group mb-3">
                             <input class="form-control" type="text" placeholder="correo electronico" aria-label="correo electronico" aria-describedby="button-addon2">

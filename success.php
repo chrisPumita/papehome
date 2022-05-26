@@ -1,5 +1,6 @@
 <?php
 session_start();
+$idPedido = $_GET["idPedido"];
 if(!isset($_SESSION['cliente_name']))
 {
     header('Location: ./login.php');
@@ -35,7 +36,7 @@ $path = "./"
                                 </div>
                                 <div class="col-10">
                                     <div class="card-body">
-                                        <p class="card-text">15615615</p>
+                                        <p class="card-text"><?php echo $idPedido ?></p>
                                     </div>
                                 </div>
                             </div>
@@ -52,7 +53,7 @@ $path = "./"
                                 </div>
                             </div>
                         </div>
-                        <a href="#" class="btn btn-primary my-3">Ver mis Pedidos</a>
+                        <a href="./account/order.php?idPedido=<?php echo $idPedido ?>" class="btn btn-primary my-3">Ver mis Pedidos</a>
                     </div>
                 </div>
             </div>

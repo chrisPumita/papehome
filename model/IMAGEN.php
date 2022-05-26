@@ -48,4 +48,10 @@ class IMAGEN extends PDODB
                 from imagen where id_producto = ".$this->getIdProd();
         return $this->consultaSQL($query);
     }
+
+    public function querySubeFoto(){
+        $query = "INSERT INTO imagen (id_producto, path)
+                        VALUES (".$this->getIdProd().", '".$this->getPath()."');";
+        return $this->ejecutarSQL($query);
+    }
 }

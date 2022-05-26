@@ -7,12 +7,14 @@ $BarCode = $_POST['BarCode'];
 $nombre = $_POST['nombre'];
 $descripcion = $_POST['descripcion'];
 $almacenMinimo = $_POST['almacenMinimo'];
+$stock = $_POST['stock'];
 $presentacion = $_POST['listPresentacion'];
 $costo = $_POST['costo'];
 $descuento = $_POST['descuento'];
 $action = $id>0?" actualizado":"registrado";
 include_once"../control/controlInventario.php";
-if(addUpadateProducto($id,$idCat,$idMarca,$sku,$BarCode,$nombre,$descripcion,$almacenMinimo,$presentacion,$costo,$descuento)){
+if(addUpadateProducto($id,$idCat,$idMarca,$sku,$BarCode,$nombre,$descripcion,$almacenMinimo,
+    $presentacion,$costo,$descuento,$stock)){
     $mensaje = "Producto ".$action;
     $value = 1;
 }

@@ -1,6 +1,20 @@
 $( document ).ready(function() {
-
+    console.log("Carrito CART")
+    cargaCarrito();
+    muestraCategorias();
 });
+
+function muestraCategorias() {
+    //containerCategorias
+    cargaCategorias("./").then(function (result) {
+        let categorias = result.data;
+        let template = ``;
+        categorias.forEach(cat=>{
+            template += `<li><a class="dropdown-item" href="./search.php?cat=${cat.categoria}&keword=none&off=none">${cat.categoria}</a></li>`;
+        })
+        $("#containerCategorias").html(template);
+    })
+}
 
 var TMP_CARRITO;
 
@@ -98,7 +112,7 @@ function iconCartNav(productos) {
          }
 
 
-         let envio = subtotal >= 100 || subtotal==0 ? 0 : 150;
+         let envio = subtotal >= 500 || subtotal==0 ? 0 : 150;
          total = subtotal  + envio;
 
          let tmp = `<div class="col">${sumaProductos} Productos</div>

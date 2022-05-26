@@ -30,7 +30,7 @@ function gen_no_vehiculo($strength = 16)  {
     }
     return $random_string;
 }
-function gen_no_inscripcion($strength = 8)  {
+function gen_no_venta($strength = 8)  {
     $input = '0123456789';
     $input_length = strlen($input);
     $random_string = '';

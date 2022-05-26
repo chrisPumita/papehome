@@ -2,8 +2,6 @@ $( document ).ready(function() {
     cargaDirecciones();
 });
 
-
-
 var DIRECCIONES;
 
 function cargaDirecciones() {

@@ -33,7 +33,6 @@ function buildHTMLCardProducto(LS_PRODUCTOS) {
           let botonStock = "";
         let found = null;
         if (TMP_CARRITO!= null) {
-            console.log("buscando...")
             found = TMP_CARRITO.find(element => parseInt(element.producto.id_producto) == parseInt(producto.id_producto));
         }
 

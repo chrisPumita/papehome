@@ -14,8 +14,8 @@ function cargaCarritoPageHTML() {
             LISTA.forEach(
                 PROD=>{
                     let cantidad = parseInt(PROD.producto.cantidad);
-                    let costo = parseInt(PROD.producto.costo_promedio);
-                    let subtotal = cantidad * costo;
+                    let costo = parseInt(PROD.producto.costo_promedio) - parseInt(PROD.producto.descuento);
+                    subtotal = cantidad * costo;
                     sumaProductos+= cantidad;
                     TOTAL_P+= subtotal;
                     template += `<div class="row py-1">

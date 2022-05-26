@@ -2,7 +2,11 @@
 session_start();
 $titulo = "HOME - Pape Home";
 $path = "../";
+$IdPedido = $_GET["idPedido"];
+echo "<script>let ID_PEDIDO = ".$IdPedido.";</script>";
 ?>
+
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -18,57 +22,44 @@ $path = "../";
             <div class="title">
                 <div class="row">
                     <div class="col">
-                        <h5>Pedido #28259</h5>
+                        <h5>Pedido # <strong id="lblIdPedido"></strong></h5>
                     </div>
-                    <div class="col align-self-center text-end text-muted">3 marxo 2022, 21:02</div>
+                    <div class="col align-self-center text-end text-muted" id="lblFecha"></div>
                     <div class="row table-responsive py-3">
                         <table class="table">
                             <thead>
                             <tr>
                                 <th scope="col">Producto</th>
                                 <th scope="col">SKU</th>
-                                <th class="text-right" scope="col">Precio</th>
+                                <th class="text-right" scope="col">Precio U</th>
+                                <th class="text-right" scope="col">Descuento</th>
                                 <th class="text-right" scope="col">Cantidad</th>
                                 <th class="text-right" scope="col">Total</th>
                             </tr>
                             </thead>
-                            <tbody><tr id="10155637112910">
-                                <th class="order-table__product" scope="row" data-label="Producto">
-                                    <div>
-                                        <a href="" title="">Producto NAME</a>
-                                    </div>
-                                    <div>Detalles y notas
-                                        <div>
-                                            <a href="https://www.estafeta.com/"> Rastrear envío </a>
-                                            <div>
-                                                Other
-                                                #3791069894
-                                            </div>
-                                        </div>
-                                    </div>
-                                </th>
-                                <td data-label="SKU">1561</td>
-                                <td class="text-right" data-label="Precio">$ 1,499.00
+                            <tbody id="contanerProductos">
 
-                                </td>
-                                <td class="text-right" data-label="Cantidad">1</td>
-                                <td class="text-right" data-label="Total">$ 1,499.00
-                                </td>
-                            </tr></tbody>
+                            </tbody>
                             <tfoot>
                             <tr>
                                 <th class="small--hide" scope="row" colspan="4">Subtotal</th>
-                                <td class="text-right" data-label="Subtotal">$ 1,499.00</td>
-                            </tr><tr>
-                                <th class="small--hide" scope="row" colspan="4">Envíos (Envio Gratis Por Promoción)</th>
-                                <td class="text-right" data-label="Envíos (Envio Gratis Por Promoción)">$ 0.00</td>
+                                <td class="text-right"><span id="lblSubtotal"></span></td>
+                            </tr>
+                            <tr>
+                                <th class="small--hide" scope="row" colspan="4">IVA</th>
+                                <td class="text-right"><span id="lblIva"></span></td>
+                            </tr>
+                            <tr>
+                                <th class="small--hide" scope="row" colspan="4" id="lblTextEnvio"></th>
+                                <td class="text-right"><span id="lblEnvio"></span></td>
                             </tr><tr>
                                 <th class="small--hide" scope="row" colspan="4"><strong>Total</strong></th>
-                                <td class="text-right" data-label="Total"><strong>$ 1,499.00 MXN</strong></td>
+                                <td class="text-right"><strong id="lblTotal"></strong></td>
                             </tr>
                             </tfoot>
                         </table>
                     </div>
+                    <!--
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="card">
@@ -90,18 +81,20 @@ $path = "../";
                             </div>
                         </div>
                     </div>
+                    -->
+
                 </div>
             </div>
         </div>
     </div>
     <div class="row py-3">
         <div class="back-to-shop">
-            <a href="./cart.php"><i class="fas fa-arrow-left"></i><span class="text-muted"> Regresar</span></a>
+            <a href="./"><i class="fas fa-arrow-left"></i><span class="text-muted"> Regresar</span></a>
         </div>
     </div>
 </section>
 <?php include "../includes_general/footer.php" ?>
 <?php include "../includes_general/js.php"?>
-
+<script src="../service/details_pedido.js"></script>
 </body>
 </html>

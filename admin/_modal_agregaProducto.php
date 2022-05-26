@@ -56,13 +56,19 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="row pt-2">
-                                <div class="col-6">
+                                <div class="col-4">
                                     <div class="form-floating mb-3">
                                         <input type="number" class="form-control" id="almacenMinimo" name="almacenMinimo" value="1" min="0" max="1000" step="0.01" >
-                                        <label for="BarCode">Minimo en almacen</label>
+                                        <label for="BarCode">Minimo</label>
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-4">
+                                    <div class="form-floating mb-3">
+                                        <input type="number" class="form-control" id="stock" name="stock" value="1" min="0" max="1000">
+                                        <label for="stock">Almacen</label>
+                                    </div>
+                                </div>
+                                <div class="col-4">
                                     <div class="form-floating">
                                         <select class="form-select" id="listPresentacion" name="listPresentacion" aria-label="Floating label select example">
                                             <option value="PIEZA">PIEZA</option>

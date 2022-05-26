@@ -39,7 +39,7 @@ class CATEGORIA extends PDODB
 
     public function queryListCategoria(){
         $query = "select id_categoria, categoria, venta_online
-                    from categoria order by categoria";
+                    from categoria where venta_online = 1 order by categoria";
         return $this->consultaSQL($query);
     }
 

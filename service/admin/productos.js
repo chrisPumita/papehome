@@ -133,6 +133,7 @@ function loadInfoProdcuto(idProducto) {
         $("#listPresentacion").val(prod.presentacion)
         $("#costo").val(prod.costo_promedio)
         $("#descuento").val(prod.descuento)
+        $("#stock").val(prod.stock)
     })
 }
 
@@ -149,7 +150,7 @@ function loadFotos(idProducto) {
                 let active = cont == 0 ? "active": "";
                     cont ++
                 template+= `<div class="carousel-item ${active}">
-                                <img src="${foto.path}" class="d-block w-100" alt="...">
+                                <img src=".${foto.path}" class="d-block w-100" alt="...">
                                 <div class="carousel-caption d-none d-md-block">
                                         <button type="button" class="btn btn-danger" onClick="removeImage(${foto.id_imagen});">Eliminar</button>
                                 </div>
@@ -224,6 +225,39 @@ $("#frm_producto").submit(function (event) {
 function removeImage(id) {
     alert("REMOVER" + id)
 }
+
+$("#frm-upload-file").on("submit", function(e){
+    e.preventDefault();
+    var formData = new FormData(document.getElementById("frm-upload-file"));
+    formData.append("dato", "valor");
+    $.ajax({
+        url: "../webhook/upload_file.php",
+        type: "post",
+        dataType: "json",
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(result){
+            console.log(result);
+            if (result.type > 0){
+                $("#frm-upload-file").trigger('reset');
+                $("#modal_fotos").modal("hide");
+                notificacion(result.action,result.mensaje)
+                var table = $('#tblProductos').DataTable( {
+                    ajax: "data.json"
+                } );
+                table.ajax.reload( null, false );
+            }
+            else{
+                Swal.fire(
+                    'Seleccione una imagen',
+                    'Debe seleccionar una imagen para agregarla al producto',
+                    'error'
+                )
+            }
+        }
+    });
+});
 
 
 /*ASYNC FUNCTIONS*/
