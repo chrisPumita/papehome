@@ -49,8 +49,7 @@ function muestraProductos() {
                                     <div class="small">
                                         <h5 class="card-title text-center">${producto.nombre}</h5>
                                          ${coste}
-                                         <h6>${producto.categoria} - ${producto.marca}</h6>      
-                                        <p class="card-text">${producto.descripcion}</p>
+                                         <h6>${producto.categoria} - ${producto.marca}</h6>
                                         ${botonStock}
                                         <a href="./product.php?idProducto=${producto.id_producto}" class="btn btn-success btn-sm" type="submit">Detalles</a>
                                     </div>
